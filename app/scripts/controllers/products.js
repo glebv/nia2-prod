@@ -11,7 +11,6 @@ angular.module('health3App')
   .controller('ProductsCtrl', function ($scope, products) {
 
   	$scope.products = {};
-  	$scope.productsIndex = 3;
 
     products.get(function(data){
     	$scope.products = data;
