@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="small-12 columns">
+		<div class="hero">
+			<h2>We've got awesome products</h2>
+			<p>Here they are!</p>
+		</div>
+
+		<ul class="indicators">
+			<li ng-repeat="i in [products.length]" ng-click="$parent.productsIndex = $index">&bull;</li>
+		</div>
+
+		<div class="carousel-container">
+			<ul rn-carousel rn-carousel-indicator>
+				<li ng-repeat="product in products">
+					<product product="product"></product>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-12 columns">
+		<div class="hero">
+			<h2>We've got awesome products</h2>
+			<p>Here they are!</p>
+		</div>
+
+		
+
+		<div class="carousel-container">
+			<ul rn-carousel rn-carousel-index="productsIndex">
+				<li ng-repeat="product in products">
+					<product product="product"></product>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

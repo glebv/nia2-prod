@@ -1,0 +1,51 @@
+// bower:scss
+// endbower
+
+// GET FOUNDATION FUNCTIONS PLS
+@import '../../bower_components/foundation/scss/foundation/functions';
+
+// NAVIGATION
+
+.bar{
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  right: 0;
+
+  height: rem-calc(44px);
+
+  border-top: 1px solid #eee;
+  background-color: #fff;
+
+  &.bottom{
+    bottom: 0;
+
+    ul{
+      margin-left: 0;
+
+      li{
+        display: inline-block;
+        text-align: center;
+        width: 23.5%;
+
+        a{
+          font-size: rem-calc(12px);
+          padding-top: rem-calc(10px);
+          display: block;
+
+          i{
+            display: block;
+            margin-bottom: rem-calc(-3px);
+          }
+        }
+      }
+    }
+  }
+}
+
+#carousel-1-indicator{
+  background-color: red;
+  position: fixed;
+  z-index: 9999;
+}
