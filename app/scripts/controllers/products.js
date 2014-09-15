@@ -12,7 +12,9 @@ angular.module('health3App')
 
   	$scope.products = {};
 
-    products.get(function(data){
+  	var sample_products = 'SE60,B65,HCM65,H85,V65';
+
+    products.get(sample_products, function(data){
     	$scope.products = data;
     });
 
