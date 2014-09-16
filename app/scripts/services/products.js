@@ -16,6 +16,5 @@ angular.module('health3App')
 			  		callback(results);
 			  	});
     	}
-    }
+    };
   });
-SE60,B65,HCM65,H85,V65

@@ -10,6 +10,6 @@
  * Controller of the health3App
  */
 angular.module('health3App')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function () {
     
   });

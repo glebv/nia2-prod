@@ -1,51 +1,57 @@
-<div class="product">
-	<header>
-		<h2>{{product.name}}</h2>
-	</header>
-	<div class="summary">
-		{{product.description}}
+<div class="product directive">
+	<div class="mask" ng-class="{ 'detailsVisible' : showDetails }">
+		<div class="summary">
+			<header>
+				<h2>{{product.name}}</h2>
+			</header>
+			<div class="summary">
+				{{product.description}}
 
-		<p>
-			This covers everything except for: 
-			<span ng-repeat="h in hospitals('notcovered')">{{ h.type }}, </span>
-		</p>
+				<p>
+					This covers everything except for: 
+					<span ng-repeat="h in hospitals('notcovered') | limitTo:3 ">{{ h.type }}, </span>
+					and {{ hospitals('notcovered').length - 3 }} others services.
+				</p>
+			</div>
+		</div>
+		<div class="details">
+			<tabset>
+				<tab heading="Hospital Cover">
+					<p>This product does not cover:</p>
+					<ul class="notcovered">
+						<li ng-repeat="h in hospitals('notcovered')">{{ h.type }}</li>
+					</ul>
+					<p>This product has rerestricted cover for:</p>
+					<ul class="restricted">
+						<li ng-repeat="h in hospitals('restrictedcover')">{{ h.type }}</li>
+					</ul>
+					<p>Some of the things it does cover:</p>
+					<ul class="covered">
+						<li ng-repeat="h in hospitals('covered')">{{ h.type }}</li>
+					</ul>
+				</tab>
+				<tab heading="Extras">
+					<table>
+						<thead>
+							<tr>
+								<th>Extra</th>
+								<th>Limit</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="extra in product.extras">
+								<td>{{ extra.type }}</td>
+								<td>${{ extra.allowance | number }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</tab>
+			</tabset>
+		</div>
 	</div>
-	<div class="details">
-		<tabset>
-			<tab heading="Hospital Cover">
-				<p>This product does not cover:</p>
-				<ul class="notcovered">
-					<li ng-repeat="h in hospitals('notcovered')">{{ h.type }}</li>
-				</ul>
-				<p>This product has rerestricted cover for:</p>
-				<ul class="restricted">
-					<li ng-repeat="h in hospitals('restrictedcover')">{{ h.type }}</li>
-				</ul>
-				<p>Some of the things it does cover:</p>
-				<ul class="covered">
-					<li ng-repeat="h in hospitals('covered')">{{ h.type }}</li>
-				</ul>
-			</tab>
-			<tab heading="Extras">
-				<table>
-					<thead>
-						<tr>
-							<th>Extra</th>
-							<th>Limit</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="extra in product.extras">
-							<td>{{ extra.type }}</td>
-							<td>${{ extra.allowance | number }}</td>
-						</tr>
-					</tbody>
-				</table>
-			</tab>
-		</tabset>
-	</div>
-	<div class="switch">
-		<a ng-click="showSummary()">Summary</a>
-		<a ng-click="showDetails()">Details</a>
-	</div>
+	
+	<!-- <div class="switch">
+		<a class="button" ng-click="showInfo('summary')">Summary</a>
+		<a class="button" ng-click="showInfo('details')">Details</a>
+	</div> -->
 </div>

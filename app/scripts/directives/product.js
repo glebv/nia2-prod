@@ -1,5 +1,5 @@
 'use strict';
-
+/* global _ */
 /**
  * @ngdoc directive
  * @name health3App.directive:product
@@ -12,14 +12,23 @@ angular.module('health3App')
       templateUrl: 'templates/product.html',
       restrict: 'E',
       scope: {
-      	product: '='
+      	product: '=',
+        states: '='
       },
-      link: function postLink(scope, element, attrs) {
+      link: function postLink(scope) {
+
+        scope.showDetails = false;
+
         scope.hospitals = function(slug){
         	return _.filter(scope.product.hospitals, function(h){
         		return h.covered_slug === slug;
         	});
-        }
+        };
+
+        scope.showInfo = function(panel){
+          if(panel === 'details') scope.showDetails = true;
+          else scope.showDetails = false;
+        };
       }
     };
   });

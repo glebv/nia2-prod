@@ -12,10 +12,15 @@ angular.module('health3App')
 
   	$scope.products = {};
 
-  	var sample_products = 'SE60,B65,HCM65,H85,V65';
+  	$scope.states = {
+  		showDetails: false
+  	};
 
-    products.get(sample_products, function(data){
+  	var sampleProducts = 'SE60,B65,HCM65,H85,V65';
+
+    products.get(sampleProducts, function(data){
     	$scope.products = data;
     });
 
   });
+ 
