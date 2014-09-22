@@ -52,9 +52,9 @@ angular.module('health3App')
 				],
 				age: [
 					{value: '18-30', 		label: 'Under 31'},
-					{value: '31-37', 		label: 'Between 31 and 38'},
-					{value: '38-55', 		label: 'Between 38 and 55'},
-					{value: '55-100', 		label: 'Older than 55'}
+					{value: '31-65', 		label: 'Between 31 and 65'},
+					{value: '65-70', 		label: 'Between 65 and 70'},
+					{value: '71-100', 		label: 'Older than 70'}
 				],
 				income: {
 					single: [

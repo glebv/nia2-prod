@@ -3,7 +3,7 @@
 		<div class="summary">
 			<header>
 				<h2>{{product.name}}</h2>
-				<h4>From $18/week</h4>
+				<h4>${{ weeklyPrice() }}/week</h4>
 			</header>
 			<div class="short-desc">
 				{{product.description}}
@@ -12,7 +12,10 @@
 					<span ng-repeat="h in hospitals('notcovered') | limitTo:3 ">{{ h.type }}, </span>
 					and {{ hospitals('notcovered').length - 3 }} others services.
 				</p>
-				<p><a ng-click="getDetails()" class="button">Get exact price</a></p>
+				<p>
+					<a ng-hide="priced" ng-click="getUserDetails()" class="button">Get exact price</a>
+					<a ng-show="priced" ng-click="joinNow()" class="button">Buy now</a>
+				</p>
 			</div>
 		</div>
 		<div class="details">

@@ -20,8 +20,6 @@ angular.module('health3App')
 
     $scope.$on('$stateChangeStart', function(evt, to, toParams, from, fromParams){
 
-    	console.log(to.name);
-
     	if(to.name === 'products.view' && $rootScope.personParams.priced){
     		$state.go('products.priced');
     	}

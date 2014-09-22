@@ -5,13 +5,13 @@ angular.module('health3App')
 	$stateProvider
 	.state('get-price', {
     url: '/get-price',
-    templateUrl: '/views/getprice.html',
+    templateUrl: 'views/getprice.html',
     controller: 'PriceCtrl'
   })
 
   .state('get-price.policy', {
     url: '/',
-    templateUrl: '/templates/list-select.html',
+    templateUrl: 'views/list-select.html',
     controller: function($scope){
       $scope.page = {
         title: 'What best describes you?',
@@ -24,7 +24,7 @@ angular.module('health3App')
 
   .state('get-price.state', {
     url: '/:policy',
-    templateUrl: '/templates/list-select.html',
+    templateUrl: 'views/list-select.html',
     controller: function($scope){
       $scope.page = {
         title: 'Where do you live?',
@@ -37,7 +37,7 @@ angular.module('health3App')
 
   .state('get-price.age', {
     url: '/:policy/:state',
-    templateUrl: '/templates/list-select.html',
+    templateUrl: 'views/list-select.html',
     controller: function($scope){
       $scope.page = {
         title: 'How old are you?',
@@ -50,7 +50,7 @@ angular.module('health3App')
 
   .state('get-price.income', {
     url: '/:policy/:state/:age',
-    templateUrl: '/templates/list-select.html',
+    templateUrl: 'views/list-select.html',
     controller: function($scope, $stateParams){
 
       var marital = $scope.personParams.selections.policy === 'Sgl' ? 'single' : 'house';

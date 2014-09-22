@@ -7,13 +7,13 @@ angular.module('health3App')
 	
 	.state('products', {
         url: '/products',
-        templateUrl: '/views/products.html',
+        templateUrl: 'views/products.html',
         controller: 'ProductsCtrl'
       })
 
       .state('products.view', {
         url: '/',
-        templateUrl: '/views/view-products.html',
+        templateUrl: 'views/view-products.html',
         controller: function($scope, products){
 
           products.get($scope.sampleProducts, function(data){
@@ -25,7 +25,7 @@ angular.module('health3App')
 
       .state('products.priced', {
         url: '/priced/:policy/:state/:age/:income',
-        templateUrl: '/views/view-products.html',
+        templateUrl: 'views/view-products.html',
         controller: function($scope, $rootScope, $stateParams, prices){
 
           $rootScope.personParams.priced = true;
@@ -44,7 +44,7 @@ angular.module('health3App')
         url: '/customise/:product',
         onEnter: function($stateParams, $state, $modal){
           $modal.open({
-            templateUrl: '/views/customise-product.html',
+            templateUrl: 'views/customise-product.html',
             resolve: {
               product: function(){
                 return 'product';

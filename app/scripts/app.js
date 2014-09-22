@@ -14,6 +14,7 @@ angular
     'ui.router',
     'ngSanitize',
     'ngAnimate',
+    'angularFileUpload',
     'mm.foundation',
     'angular-carousel'
   ])
@@ -22,19 +23,19 @@ angular
     $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: '/views/main.html',
+      templateUrl: 'views/main.html',
       controller: 'HomeCtrl'
     })
 
     .state('whyus', {
       url: '/why-us',
-      templateUrl: '/views/whyus.html',
+      templateUrl: 'views/whyus.html',
       controller: 'WhyUsCtrl'
     })
 
     .state('contact', {
       url: '/contact',
-      templateUrl: '/views/contact.html',
+      templateUrl: 'views/contact.html',
       controller: 'ContactCtrl'
     });
   })
