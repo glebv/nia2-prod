@@ -3,31 +3,32 @@
 		<div class="summary">
 			<header>
 				<h2>{{product.name}}</h2>
+				<h4>From $18/week</h4>
 			</header>
-			<div class="summary">
+			<div class="short-desc">
 				{{product.description}}
-
 				<p>
 					This covers everything except for: 
 					<span ng-repeat="h in hospitals('notcovered') | limitTo:3 ">{{ h.type }}, </span>
 					and {{ hospitals('notcovered').length - 3 }} others services.
 				</p>
+				<p><a ng-click="getDetails()" class="button">Get exact price</a></p>
 			</div>
 		</div>
 		<div class="details">
 			<tabset>
 				<tab heading="Hospital Cover">
 					<p>This product does not cover:</p>
-					<ul class="notcovered">
-						<li ng-repeat="h in hospitals('notcovered')">{{ h.type }}</li>
+					<ul class="notcovered no-bullet">
+						<li ng-repeat="h in hospitals('notcovered')"><i class="fa fa-times"></i> {{ h.type }}</li>
 					</ul>
 					<p>This product has rerestricted cover for:</p>
-					<ul class="restricted">
-						<li ng-repeat="h in hospitals('restrictedcover')">{{ h.type }}</li>
+					<ul class="restricted no-bullet">
+						<li ng-repeat="h in hospitals('restrictedcover')"><i class="fa fa-exclamation-triangle"></i> {{ h.type }}</li>
 					</ul>
 					<p>Some of the things it does cover:</p>
-					<ul class="covered">
-						<li ng-repeat="h in hospitals('covered')">{{ h.type }}</li>
+					<ul class="covered no-bullet">
+						<li ng-repeat="h in hospitals('covered')"><i class="fa fa-check"></i> {{ h.type }}</li>
 					</ul>
 				</tab>
 				<tab heading="Extras">

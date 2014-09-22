@@ -8,19 +8,10 @@
  * Controller of the health3App
  */
 angular.module('health3App')
-  .controller('ProductsCtrl', function ($scope, products) {
-
-  	$scope.products = {};
-
-  	$scope.states = {
-  		showDetails: false
-  	};
-
-  	var sampleProducts = 'SE60,B65,HCM65,H85,V65';
-
-    products.get(sampleProducts, function(data){
-    	$scope.products = data;
-    });
+  .controller('ProductsCtrl', function ($scope) {
+    
+    // $scope.products = {};
+  	$scope.sampleProducts = 'SE60,B65,HCM65,H85,V65';
 
   });
  

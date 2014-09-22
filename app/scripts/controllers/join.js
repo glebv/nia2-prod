@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name health3App.controller:ContactCtrl
+ * @name health3App.controller:JoinCtrl
  * @description
- * # ContactCtrl
+ * # JoinCtrl
  * Controller of the health3App
  */
 angular.module('health3App')
-  .controller('ContactCtrl', function ($scope) {
+  .controller('JoinCtrl', function ($scope) {
     
   });

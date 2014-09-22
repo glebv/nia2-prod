@@ -24,31 +24,8 @@
 
     <!-- Add your site or application content here -->
     <div class="container" ng-controller="MainCtrl">
-      <nav class="bottom bar">
-        <ul>
-          <li ui-sref-active="active"><a ui-sref="home">
-            <i class="fa fa-home"></i>
-            Home
-          </a></li>
-
-          <li ui-sref-active="active"><a ui-sref="whyus">
-            <i class="fa fa-question-circle"></i>
-            Why Us
-          </a></li>
-
-          <li ui-sref-active="active"><a ui-sref="products">
-            <i class="fa fa-leaf"></i>
-            Products
-          </a></li>
-
-          <li ui-sref-active="active"><a ui-sref="contact">
-            <i class="fa fa-phone"></i>
-            Contact
-            </a></li>
-        </ul>
-      </nav>
-
-      <div ui-view=""></div>
+      <nav-bar></nav-bar>
+      <ui-view></ui-view>
     </div>
 
 
@@ -92,14 +69,22 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/config/products.js"></script>
+        <script src="scripts/config/join.js"></script>
+        <script src="scripts/config/getprice.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/whyus.js"></script>
         <script src="scripts/controllers/contact.js"></script>
         <script src="scripts/controllers/products.js"></script>
+        <script src="scripts/controllers/getprice.js"></script>
         <script src="scripts/directives/product.js"></script>
         <script src="scripts/controllers/home.js"></script>
         <script src="scripts/services/products.js"></script>
+        <script src="scripts/controllers/getprice.js"></script>
+        <script src="scripts/services/price.js"></script>
+        <script src="scripts/directives/nav-bar.js"></script>
+        <script src="scripts/controllers/join.js"></script>
         <!-- endbuild -->
 </body>
 </html>

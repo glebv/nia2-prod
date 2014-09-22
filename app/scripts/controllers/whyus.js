@@ -8,7 +8,7 @@
  * Controller of the health3App
  */
 angular.module('health3App')
-  .controller('WhyusCtrl', function ($scope) {
+  .controller('WhyUsCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

@@ -7,7 +7,7 @@
  * # product
  */
 angular.module('health3App')
-  .directive('product', function () {
+  .directive('product', function ($state) {
     return {
       templateUrl: 'templates/product.html',
       restrict: 'E',
@@ -15,8 +15,7 @@ angular.module('health3App')
       	product: '=',
         states: '='
       },
-      link: function postLink(scope) {
-
+      link: function(scope) {
         scope.showDetails = false;
 
         scope.hospitals = function(slug){
@@ -28,6 +27,10 @@ angular.module('health3App')
         scope.showInfo = function(panel){
           if(panel === 'details') scope.showDetails = true;
           else scope.showDetails = false;
+        };
+
+        scope.getDetails = function(product){
+          $state.go('get-price.policy', {product: product});
         };
       }
     };

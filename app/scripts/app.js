@@ -20,29 +20,23 @@ angular
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'views/main.html',
-        controller: 'HomeCtrl'
-      })
+    .state('home', {
+      url: '/',
+      templateUrl: '/views/main.html',
+      controller: 'HomeCtrl'
+    })
 
-      .state('whyus', {
-        url: '/why-us',
-        templateUrl: 'views/whyus.html',
-        controller: 'WhyUsCtrl'
-      })
+    .state('whyus', {
+      url: '/why-us',
+      templateUrl: '/views/whyus.html',
+      controller: 'WhyUsCtrl'
+    })
 
-      .state('contact', {
-        url: '/contact',
-        templateUrl: 'views/contact.html',
-        controller: 'ContactCtrl'
-      })
-
-      .state('products', {
-        url: '/products',
-        templateUrl: 'views/products.html',
-        controller: 'ProductsCtrl'
-      });
+    .state('contact', {
+      url: '/contact',
+      templateUrl: '/views/contact.html',
+      controller: 'ContactCtrl'
+    });
   })
 
   .config(function ($locationProvider) {
