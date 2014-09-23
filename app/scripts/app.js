@@ -12,8 +12,10 @@ angular
   .module('health3App', [
     'ngResource',
     'ui.router',
+    'duScroll',
     'ngSanitize',
     'ngAnimate',
+    'ngTouch',
     'angularFileUpload',
     'mm.foundation',
     'angular-carousel'
@@ -23,7 +25,7 @@ angular
     $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: 'views/main.html',
+      templateUrl: 'views/home.html',
       controller: 'HomeCtrl'
     })
 

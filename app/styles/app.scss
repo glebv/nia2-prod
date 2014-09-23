@@ -1,0 +1,157 @@
+// bower:scss
+// endbower
+
+// GET FOUNDATION FUNCTIONS PLS //
+@import 'settings';
+@import 'config';
+
+// COLOUR BAR OW YES //
+
+.colour-bar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
+  height: .25rem;
+  width: 100%;
+
+  > div {
+    height: .25rem;
+    width: 14.28%;
+    float: left;
+  }
+
+  .purple { background-color: $purple }
+  .orange { background-color: $orange }
+  .pink   { background-color: $pink   }
+  .blue   { background-color: $blue   }
+  .yellow { background-color: $yellow }
+  .green  { background-color: $green  }
+  .grey   { background-color: $grey   }
+  .white  { background-color: #fff    }
+}
+
+// NAVIGATION //
+
+.bar{
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  right: 0;
+
+  height: rem-calc(44px);
+
+  border-top: 1px solid #eee;
+  background-color: #fff;
+
+  &.bottom{
+    bottom: 0;
+
+    ul{
+      margin-left: 0;
+
+      li{
+        display: inline-block;
+        text-align: center;
+        width: 23.5%;
+
+        a{
+          font-size: rem-calc(12px);
+          padding-top: rem-calc(10px);
+          display: block;
+
+          i{
+            display: block;
+            margin-bottom: rem-calc(-3px);
+          }
+        }
+      }
+    }
+  }
+}
+
+// GENERAL GENERIC STYLES //
+
+body, 
+html, 
+.container{
+  height: 100%;
+  font-family: ProximaNova;
+
+  strong{
+    font-weight: 500;
+  }
+}
+
+// HERO SECTION ON HOMEPAGE //
+
+section.hero{
+  background: url(../images/hero-beach.png) no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+
+  height: 100%;
+  width: 100%;
+  display: table;
+  position: relative;
+
+
+  .top-actions{
+    position: absolute;
+    right: 1em;
+    top: 1em;
+
+    li{
+      list-style: none;
+
+      a{
+        display: block;
+        margin-bottom: .5em;
+
+        width: rem-calc(130px);
+        line-height: rem-calc(35px);
+
+        text-align: center;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 200;
+        font-size: .75em;
+        
+        &.get-quote-button{
+          border: 1px solid #fff;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+
+  > div{
+    display: table-cell;
+    vertical-align: middle;
+
+    h1{
+      color: #fff;
+      margin-top: 0;
+      font-weight: 700;
+    }
+
+    p{
+      font-weight: 200;
+      font-size: rem-calc(18px);
+
+      &.no-margin{
+        margin: 0;
+      }
+    }
+
+    .fa-angle-down{
+      color: #fff;
+      @include animation(hoverAnimation, 2s, 0);
+    }
+  }
+}
+
+

@@ -17,7 +17,14 @@ angular.module('health3App')
 
   .state('join.license', {
     url: '/license',
-    templateUrl: 'views/join-upload.html'
+    templateUrl: 'views/join-upload.html',
+    controller: 'JoinLicenseCtrl'
+  })
+
+  .state('join.medicare', {
+    url: '/medicare',
+    templateUrl: 'views/join-upload.html',
+    controller: 'JoinMedicareCtrl'
   });
 
 });

@@ -49,10 +49,10 @@ angular.module('health3App')
             var rebateDiscount = (weeklyPrice / 100) * rebatePercentage;
             var weeklyPriceDiscounted = weeklyPrice - rebateDiscount;
 
-            return weeklyPriceDiscounted.toFixed(2);
+            return '$' + weeklyPriceDiscounted.toFixed(2);
 
           } else {
-            return 'minimum_price';
+            return 'from $' + product.minimum_price;
           }
         }
 
