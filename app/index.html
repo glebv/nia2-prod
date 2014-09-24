@@ -16,6 +16,8 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/app.css">
     <!-- endbuild -->
+
+    <!-- <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic' rel='stylesheet' type='text/css'> -->
   </head>
   <body ng-app="health3App">
     <!--[if lt IE 7]>
@@ -24,8 +26,12 @@
 
     <!-- Add your site or application content here -->
     <div class="container" ng-controller="MainCtrl">
+      <colour-bar></colour-bar>
       <nav-bar></nav-bar>
-      <ui-view></ui-view>
+      <div class="ui-container">
+        <div class="pages" ui-view></div>
+      </div>
+      <!-- <health-footer></health-footer> -->
     </div>
 
 
@@ -50,6 +56,7 @@
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
@@ -57,6 +64,9 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-foundation/mm-foundation-tpls.js"></script>
     <script src="bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
+    <script src="bower_components/foundation/js/foundation.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
@@ -85,6 +95,10 @@
         <script src="scripts/controllers/join.js"></script>
         <script src="scripts/services/util.js"></script>
         <script src="scripts/directives/colour-bar.js"></script>
+        <script src="scripts/directives/testimonial-slider.js"></script>
+        <script src="scripts/services/testimonials.js"></script>
+        <script src="scripts/directives/health-footer.js"></script>
+        <script src="scripts/services/reasons.js"></script>
         <!-- endbuild -->
 </body>
 </html>

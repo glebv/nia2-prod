@@ -10,7 +10,7 @@
  * Controller of the health3App
  */
 angular.module('health3App')
-  .controller('MainCtrl', function ($scope, $rootScope, $document, $state) {
+  .controller('MainCtrl', function ($scope, $rootScope, $document, $state, products) {
 
   	// I STORE PRICE SELECTIONS //
     $rootScope.personParams = {
@@ -18,29 +18,20 @@ angular.module('health3App')
     	selections: {}
     };
 
+    $rootScope.productsLoaded = false;
+    products.get($scope.sampleProducts, function(data){
+      $rootScope.products = data;
+      $rootScope.productsLoaded = true;
+    });
+
     // I AM TO CHECK IF USER HAS BEEN PRICED ALREADY... I DONT WORK YET. //
     $scope.$on('$stateChangeStart', function(evt, to, toParams, from, fromParams){
+
+      $document.scrollTo(0);
+
     	if(to.name === 'products.view' && $rootScope.personParams.priced){
     		$state.go('products.priced');
     	}
     });
 
-    // I AM FOR SCROLLY NAV //
-    $scope.scrolling = false;
-    var prevScroll = 0;
-
-    $document.on('scroll', function(evt){
-      var st = $document.scrollTop();
-      
-      if(st < 44) scrolling = false;
-      else if(st > 44) scrolling = true;
-
-      if(st > prevScroll){
-        // down
-      } else if (st < prevScroll){
-        // up
-      }
-
-      prevScroll = st;
-    });
   });

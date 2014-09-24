@@ -1,15 +1,12 @@
-<div class="hero">
+<!-- <div class="hero">
 	<h2>We're proud of our best sellers</h2>
 	<p>And we think you'll be able to pick the perfect product for you.</p>
-	<!-- <a ui-sref="products.customise">customise</a> -->
-</div>
-
-<!-- <ul class="indicators">
-	<li ng-repeat="i in products" ng-click="$parent.productsIndex = $index">&bull;</li>
-</ul> -->
+	<a ui-sref="products.customise">customise</a>
+</div> -->
 
 <div class="carousel-container">
-	<ul rn-carousel>
+	<p class="loading" ng-hide="productsLoaded">Loading...</p>
+	<ul rn-carousel rn-carousel-indicator ng-show="productsLoaded">
 		<li ng-repeat="product in products">
 			<product product="product" states="states"></product>
 		</li>

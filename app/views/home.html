@@ -1,10 +1,10 @@
-<colour-bar></colour-bar>
 
-<section class="hero">
+
+<section class="hero middle-align">
 	<div class="top-actions">
 		<ul>
 			<li><a href="">I'm a customer</a></li>
-			<li><a href="" class="get-quote-button">Get a quote</a></li>
+			<li><a href="" class="get-quote-button">See products</a></li>
 		</ul>
 	</div>
 	<div class="row">
@@ -13,16 +13,42 @@
 			<h1 class="glypha">health.com.au</h1>
 
 			<p>We have made <br>
-					health insurance better <br>
-					for over 85,000 Australians.</p>
+			health insurance better <br>
+			for over 85,000 Australians.</p>
 
-			<p>See how.</p>
+			<p class="no-margin">See how.</p>
 
-			<p><a href="" class="fa fa-angle-down"></a></p>
+			<p class="no-margin"><a href="" class="fa fa-angle-down"></a></p>
 		</div>
 	</div>
 </section>
 
-<section class="testimonials">
-	<h2>testimonials</h2>
+<section class="testimonials middle-align">
+	<div class="table-cell">
+		<testimonial-slider items="testimonials"></testimonail-slider>
+	</div>
 </section>
+
+<section class="reasons">
+	<div class="small-6 columns" 
+		 ng-repeat="reason in reasons"
+		 ng-init="showReason = false" 
+		 ng-class="{ 'show-reason' : showReason }" 
+		 ng-click="showReason = !showReason">
+		 
+		<div class="reason">
+			<div class="first">{{ reason.name }} <br> <i class="fa fa-angle-down"></i></div>
+			<div class="second">{{ reason.desc }}</div>
+		</div>
+		
+	</div>
+</section>
+
+<!-- <section class="only-what-you-need middle-align">
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Only get what you need.</h2>
+
+		</div>
+	</div>
+</section> -->

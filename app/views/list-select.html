@@ -1,17 +1,22 @@
-<div class="small-12 columns select">
-	<h2>{{page.title}}</h2>
-	<label 
-		ng-repeat="option in page.options" 
-		for="{{page.type}}-{{ option.value | lowercase }}" 
-		ui-sref="{{page.next}}({ {{ page.type }} : option.value })"
-		ng-class="{ 'selected' : personParams.selections[page.type] === option.value }">
-		{{ option.label }} {{option.value}}
-		<input 
-			type="radio" 
-			ng-model="personParams.selections[page.type]" 
-			value="{{ option.value }}" 
-			id="{{page.type}}-{{ option.value | lowercase }}" 
-			name="{{page.type}}-{{ option.value | lowercase }}">
-	</label>
-
+<div class="select">
+	<header class="small-12 columns">
+		<h2>{{ page.title }}</h2>
+		<p>{{ page.desc }}</p>
+	</header>
+	<div class="choices">
+		<label
+			class="small-12 columns" 
+			ng-repeat="option in page.options" 
+			for="{{page.type}}-{{ option.value | lowercase }}" 
+			ui-sref="{{page.next}}({ {{ page.type }} : option.value })"
+			ng-class="{ 'selected' : personParams.selections[page.type] === option.value }">
+			{{ option.label }}
+			<input 
+				type="radio" 
+				ng-model="personParams.selections[page.type]" 
+				value="{{ option.value }}" 
+				id="{{page.type}}-{{ option.value | lowercase }}" 
+				name="{{page.type}}-{{ option.value | lowercase }}">
+		</label>
+	</div>
 </div>

@@ -16,19 +16,23 @@ angular.module('health3App')
   })
 
   .controller('ProductsViewCtrl', function ($scope, products){
+    $scope.productsLoaded = false;
   	products.get($scope.sampleProducts, function(data){
       $scope.products = data;
+      $scope.productsLoaded = true;
     });
   })
 
   .controller('ProductsPricedCtrl', function ($scope, $rootScope, $stateParams, prices){
   	$rootScope.personParams.priced = true;
     $rootScope.personParams.selections = $stateParams;
+    $scope.productsLoaded = false;
 
     var params = 'policy/' + $stateParams.policy + '/state/' + $stateParams.state;
 
     prices.get($scope.sampleProducts, params, function(data){
       $scope.products = data;
+      $scope.productsLoaded = true;
     });
   })
 

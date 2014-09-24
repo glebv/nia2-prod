@@ -1,9 +1,16 @@
 // bower:scss
 // endbower
 
-// GET FOUNDATION FUNCTIONS PLS //
-@import 'settings';
+// Include important shit //
 @import 'config';
+@import 'settings';
+
+// OI! LOOKING FOR GENERAL BODY STYLES & SHIT?
+// CHECK THE BOTTOM OF THE DOC - I PUT THEM THERE
+// BECAUSE THEY WERE TOO MESSY UP HERE AND I LOVE
+// CLEAN CODE. CLEAN CODE FOR EVERYONE.
+
+#sorrynotsorry{}
 
 // COLOUR BAR OW YES //
 
@@ -47,6 +54,13 @@
   border-top: 1px solid #eee;
   background-color: #fff;
 
+  transform: translateY(rem-calc(44px));
+  transition: all .5s $easeOutExpo;
+
+  &.scrolled{
+    transform: translateY(0);
+  }
+
   &.bottom{
     bottom: 0;
 
@@ -73,31 +87,12 @@
   }
 }
 
-// GENERAL GENERIC STYLES //
-
-body, 
-html, 
-.container{
-  height: 100%;
-  font-family: ProximaNova;
-
-  strong{
-    font-weight: 500;
-  }
-}
-
 // HERO SECTION ON HOMEPAGE //
 
 section.hero{
-  background: url(../images/hero-beach.png) no-repeat center center fixed;
+  background: url(../images/hero-beach.png) no-repeat center center;
   background-size: cover;
   color: #fff;
-
-  height: 100%;
-  width: 100%;
-  display: table;
-  position: relative;
-
 
   .top-actions{
     position: absolute;
@@ -129,13 +124,15 @@ section.hero{
   }
 
   > div{
-    display: table-cell;
-    vertical-align: middle;
 
     h1{
       color: #fff;
       margin-top: 0;
       font-weight: 700;
+    }
+
+    h3{
+      color: #fff;
     }
 
     p{
@@ -154,4 +151,230 @@ section.hero{
   }
 }
 
+// TESTIMONIALS ON HOMEPAGE //
 
+section.testimonials{
+  background: url(../images/bike-bg.jpg) no-repeat center center;
+  color: #fff;
+
+  .item{
+    h2{
+      color: #fff;
+      text-align: center;
+      padding: 0 1em;
+      font-weight: 100;
+      font-style: italic;
+    }
+
+    .cite{
+      text-align: center;
+    }
+  }
+
+  .controls{
+    text-align: center;
+    margin-left: 0;
+
+    li{
+      list-style: none;
+      display: inline-block;
+      width: 29%;
+      line-height: 2.5em;
+      margin: .5em 2%;
+      text-align: center;
+      color: $pink;
+      background: rgba(255,255,255,.5);
+
+      &.active{
+        opacity: .5;
+      }
+    }
+  }
+}
+
+// REASONS ON HOMEPAGE //
+.reasons{
+  height: 100%;
+
+  > div{
+    height: 50%;
+    overflow-y: hidden;
+    transform: translateY(0);
+
+    &:nth-child(1){ background-color: lighten($purple, 20); }
+    &:nth-child(2){ background-color: lighten($orange, 20); }
+    &:nth-child(3){ background-color: lighten($pink, 20); }
+    &:nth-child(4){ background-color: lighten($blue, 20); }
+
+    &.show-reason .reason{
+      transform: translateY(-100%);
+    }
+  }
+
+  .reason{
+    transition: all .5s $easeOutExpo;
+    height: 100%;
+    > div{
+      height: 100%;
+      padding: 1em 0;
+
+      &.first{
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+// WHY US PAGE //
+
+.happy-customers{
+  background: url(../images/bike-bg.jpg) no-repeat center center;
+  color: #fff;
+
+  h2{
+    color: #fff;
+  }
+}
+
+// GET PRICE VIEWS //
+.get-price{
+  padding-top: 1em;
+
+  label{
+    color: #fff;
+    padding-top: .7em;
+    padding-bottom: .3em;
+    font-size: 1.25em;
+    font-weight: 200;
+
+    &:nth-child(1){ background-color: $purple; }
+    &:nth-child(2){ background-color: $orange; }
+    &:nth-child(3){ background-color: $pink; }
+    &:nth-child(4){ background-color: $blue; }
+    &:nth-child(5){ background-color: $green; }
+    &:nth-child(6){ background-color: $dark-yellow; }
+    &:nth-child(7){ background-color: $purple; }
+    &:nth-child(8){ background-color: $orange; }
+
+    input{opacity: 0;}
+  }
+}
+
+// PRODUCTS VIEW //
+.products-page{
+
+  .rn-carousel-container{
+    position: relative;
+    padding-top: 2em;
+
+    .rn-carousel-indicator{
+      position: fixed;
+      top: 0.25rem;
+      left: 0;
+      background: #fff;
+      height: 1.75em;
+
+      > span{
+        font-size: .5em;
+        color: #ddd;
+
+        &.active{
+          color: #222;
+        }
+      }
+    }
+  } 
+}
+
+// PRODUCT CARD - OUTSIDE PRODUCTS PAGE COZ IT COULD BE ANYWHERE //
+
+.product-card{
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 0.25em;
+  header{
+    border-bottom: 1px solid #ddd;
+  }
+
+  p{
+    color: #999;
+  }
+}
+
+// CRAZY FUCKING ANIMATIONS //
+
+// General page animations //
+
+[ui-view]{
+  &.ng-enter,
+  &.ng-leave{
+    transition: all .5s $easeOutExpo;
+    transform-origin: center center;
+    position: absolute;
+  }
+
+  &.ng-enter{
+    opacity: 0;
+    transform: scale(1.1);
+    &.ng-enter-active{
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &.ng-leave{
+    opacity: 1;
+    transform: scale(1);
+    &.ng-leave-active{
+      opacity: 0;
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Testimonial in/out animation //
+.ng-show-add
+
+// GENERAL GENERIC STYLES //
+
+body, 
+html, 
+.container{
+  height: 100%;
+  font-family: ProximaNova;
+  font-weight: 300;
+
+  strong{
+    font-weight: 500;
+  }
+}
+
+h1,
+h2{
+  font-weight: 200;
+}
+
+p{
+  font-weight: 300;
+}
+
+.ui-container,
+.pages[ui-view]{
+  height: 100%;
+}
+
+section:nth-child(even){
+  background-color: #f6f6f6;
+}
+
+section.middle-align{
+  height: 115%;
+  // @media #{$medium-up}{height: 100%}
+  width: 100%;
+  display: table;
+  position: relative;
+  > div {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
