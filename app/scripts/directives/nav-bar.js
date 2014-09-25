@@ -7,12 +7,12 @@
  * # navBar
  */
 angular.module('health3App')
-  .directive('navBar', function ($document, $window) {
+  .directive('navBar', function () {
     return {
       templateUrl: 'views/nav-bar.html',
       restrict: 'E',
       replace: true,
-      link: function postLink(scope, element, attrs) {
+      link: function postLink() {
 
       	// var windowHeight = $window.innerHeight;
       	// var previousScrollPos = 0;
@@ -28,7 +28,7 @@ angular.module('health3App')
 
        //  	previousScrollPos = scrollPos;
        //  	scope.$apply();
-       //  });
+       //  }); 
 
       }
     };

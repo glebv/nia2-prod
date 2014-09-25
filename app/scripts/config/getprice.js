@@ -31,5 +31,5 @@ angular.module('health3App')
     url: '/:policy/:state/:age',
     templateUrl: 'views/list-select.html',
     controller: 'PriceIncomeCtrl'
-  })
-})
+  });
+});

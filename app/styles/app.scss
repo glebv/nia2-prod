@@ -306,8 +306,19 @@ section.testimonials{
 
   .details p,
   .details ul{
-    @include grid-column(12);
+    // @grid-column(12);
   }
+
+  h4{
+    span{
+      display: none;
+    }
+
+    &.priced span{
+      display: inline-block;
+    }
+  }
+
 }
 
 // CRAZY FUCKING ANIMATIONS //

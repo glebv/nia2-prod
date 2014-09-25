@@ -4,7 +4,7 @@
 	<div class="top-actions">
 		<ul>
 			<li><a href="">I'm a customer</a></li>
-			<li><a href="" class="get-quote-button">See products</a></li>
+			<li><a ui-sref="products.view" class="get-quote-button">See products</a></li>
 		</ul>
 	</div>
 	<div class="row">
@@ -48,7 +48,7 @@
 	<div class="row">
 		<div class="small-12 columns product" ng-repeat="product in products">
 			<p class="no-margin"><small>from ${{ product.minimum_price }}/week</small></p>
-			<h3>{{ product.name }}</h3>
+			<h3>{{ product.nicename }}</h3>
 			<p>{{ product.description }}</p>
 			<p><a ng-click="seeProduct($index)" class="small button">See details</a></p>
 		</div>

@@ -14,13 +14,13 @@ angular.module('health3App')
       scope: {
       	items: '='
       },
-      link: function postLink(scope, element, attrs) {
+      link: function postLink(scope) {
 
       	scope.currentIndex = 0;
 
       	function changeOnInterval(){
       		var newIndex = scope.currentIndex++;
-      		if(newIndex >= scope.items.length) newIndex = 0;
+      		if(newIndex >= scope.items.length) { newIndex = 0; }
       		scope.currentIndex = newIndex;
       	}
 

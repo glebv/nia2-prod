@@ -1,5 +1,7 @@
 'use strict';
 
+/*global _ */
+
 /**
  * @ngdoc function
  * @name health3App.controller:GetpriceCtrl
@@ -38,7 +40,7 @@ angular.module('health3App')
       type: 'state',
       next: 'get-price.age',
       options: $scope.options.state            
-    }
+    };
   })
 
   .controller('PriceAgeCtrl', function($scope){
@@ -47,10 +49,10 @@ angular.module('health3App')
       type: 'age',
       next: 'get-price.income',
       options: $scope.options.age
-    }
+    };
   })
 
-  .controller('PriceIncomeCtrl', function($scope, $stateParams){
+  .controller('PriceIncomeCtrl', function($scope){
   	var marital = $scope.personParams.selections.policy === 'Sgl' ? 'single' : 'house';
 
     $scope.page = {
@@ -58,5 +60,5 @@ angular.module('health3App')
       type: 'income',
       next: 'products.priced',
       options: $scope.options.income[marital]         
-    }
+    };
   });

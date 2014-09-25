@@ -1,5 +1,7 @@
 'use strict';
 
+/*global _ */
+
 /**
  * @ngdoc service
  * @name health3App.getprice
@@ -12,12 +14,12 @@ angular.module('health3App')
   	return {
   		get: function(skus, data){
   			var defer = $q.defer();
-  			$http.get("http://niahealthdata.com/api/priced-sample-products/" + skus + '/params/' + data)
+  			$http.get('http://niahealthdata.com/api/priced-sample-products/' + skus + '/params/' + data)
   			.success(function(result){
   				// convert resulting products to array of objects
   				// instead of object containing objects.
   				var resultsArray = [];
-  				_.each(result, function(r){ resultsArray.push(r) });
+  				_.each(result, function(r){ resultsArray.push(r); });
   				defer.resolve(resultsArray);
   			})
   			.error(function(){
@@ -28,7 +30,7 @@ angular.module('health3App')
   		},
 
   		getParams: function(obj){
-  			var str = "";
+  			var str = '';
   			_.each(obj, function(val, key){
   				str+= '/' + key.toString() + '/' + val.toString();
   			});
@@ -80,6 +82,6 @@ angular.module('health3App')
 						{value: 'tier4', 	label: 'More than $272k'}
 					]
 				}
-			},
-  	}
+			}
+		};
   });

@@ -1,5 +1,7 @@
 'use strict';
 
+/*global _ */
+
 /**
  * @ngdoc service
  * @name health3App.products
@@ -19,7 +21,8 @@ angular.module('health3App')
           var resultsArray = [];
           _.each(results, function(r){
             resultsArray.push(r);
-          })
+          });
+
           defer.resolve(resultsArray);
         })
         .error(function(){

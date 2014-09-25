@@ -19,10 +19,10 @@ angular.module('health3App')
     };
 
     $rootScope.productsLoaded = false;
-    $rootScope.sampleProducts = 'SE60,B65,HC65,H65,V65';
+    $rootScope.sampleProducts = 'SE60,B65,HCM65,H65,V65';
 
     // I AM TO CHECK IF USER HAS BEEN PRICED ALREADY... I DONT WORK YET. //
-    $scope.$on('$stateChangeStart', function(evt, to, toParams, from, fromParams){
+    $rootScope.$on('$stateChangeStart', function(evt, to){
 
       $document.scrollTo(0);
 
@@ -31,4 +31,9 @@ angular.module('health3App')
     	}
     });
 
+    // TRACK PREVIOUS STATE //
+    $rootScope.previousState = 'home';
+    $rootScope.$on('$stateChangeSuccess', function(ev, to, toParams, from){
+      $rootScope.previousState = from.name;
+    });
   });

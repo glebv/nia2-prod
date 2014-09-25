@@ -1,8 +1,16 @@
 <div class="carousel-container">
 	<p class="loading" ng-hide="productsLoaded">Loading...</p>
-	<ul rn-carousel rn-carousel-indicator rn-carousel-index="slideIndex" ng-show="productsLoaded">
+	 <!-- rn-carousel-index="slideIndex" -->
+	<ul rn-carousel rn-carousel-indicator ng-show="productsLoaded">
 		<li ng-repeat="product in products">
-			<product product="product" states="states"></product>
+
+			<product ng-if="product.name !== 'empty'" product="product" states="states"></product>
+
+			<div class="empty" ng-if="product.name === 'empty'">
+				<h2>None of these scream "YOU"?</h2>
+				<p>That's ok! We've got plenty of products. Give us a call if none of these suit you, and one of our specialists will help you find cover that suits your life perfectly.</p>
+				<h3><a href="tel:1300 199 802">1300 199 802</a></h3>
+			</div>
 		</li>
 	</ul>
 </div>

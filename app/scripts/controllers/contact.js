@@ -8,6 +8,6 @@
  * Controller of the health3App
  */
 angular.module('health3App')
-  .controller('ContactCtrl', function ($scope) {
+  .controller('ContactCtrl', function () {
     
   });

@@ -1,5 +1,7 @@
 'use strict';
 
+/*global _ */
+
 /**
  * @ngdoc function
  * @name health3App.controller:JoinCtrl
@@ -22,29 +24,29 @@ angular.module('health3App')
     		.progress(function(evt){
     			console.log(parseInt(evt.loaded / evt.total));
     		})
-    		.success(function(data, status, headers, config){
-    			// file uploaded
+    		.success(function(){
+    			// data, status, headers, config = file uploaded args
     		});
-    	})
+    	});
     };
 
   })
 
   .controller('JoinLicenseCtrl', function ($scope){
     $scope.page = {
-      title: "Snap a photo of your drivers license",
-      desc: "We use this to easily grab your date of birth and address.",
+      title: 'Snap a photo of your drivers license',
+      desc: 'We use this to easily grab your date of birth and address.',
       next: 'join.medicare'
-    }
+    };
   })
 
   .controller('JoinMedicareCtrl', function ($scope){
     $scope.page = {
-      title: "Snap a photo of your medicare card",
-      desc: "We use this to grab people who'll be on your policy."
-    }
-  })
-
-  .controller('JoinPreviousInsurerCtrl', function ($scope){
-
+      title: 'Snap a photo of your medicare card',
+      desc: 'We use this to grab people who\'ll be on your policy.'
+    };
   });
+
+  // .controller('JoinPreviousInsurerCtrl', function ($scope){
+
+  // });

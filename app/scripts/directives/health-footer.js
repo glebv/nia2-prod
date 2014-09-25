@@ -11,7 +11,7 @@ angular.module('health3App')
     return {
       templateUrl: 'views/footer.html',
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
+      link: function postLink() {
         
       }
     };

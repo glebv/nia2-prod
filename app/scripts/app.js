@@ -40,8 +40,15 @@ angular
 
     .state('contact', {
       url: '/contact',
-      templateUrl: 'views/contact.html',
-      controller: 'ContactCtrl'
+      onEnter: function ($state, $modal, $rootScope){
+        $modal.open({
+          templateUrl: 'views/contact.html',
+          controller: 'ContactCtrl'
+        }).result.finally(function(){
+          var returnState = $rootScope.previousState ? $rootScope.previousState : 'home';
+          $state.go(returnState);
+        });
+      }
     });
   })
 

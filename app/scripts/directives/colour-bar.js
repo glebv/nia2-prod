@@ -11,7 +11,7 @@ angular.module('health3App')
     return {
       templateUrl: 'views/colour-bar.html',
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
+      link: function postLink() {
         // element.text('this is the colourBar directive');
       }
     };

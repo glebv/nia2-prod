@@ -11,8 +11,9 @@
 					<span ng-repeat="h in hospitals('notcovered') | limitTo:3 ">{{ h.type }}, </span>
 					and {{ hospitals('notcovered').length - 3 }} others services.
 				</p> -->
+
+				<h4 ng-class="{ 'priced' : priced }">{{ weeklyPrice() }}/week <span ng-click="priceDetail()">?</span></h4>
 				<p>
-					<h4>{{ weeklyPrice() }}/week</h4>
 					<a ng-hide="priced" ng-click="getUserDetails()" class="button">Quote me</a>
 					<a ng-show="priced" ng-click="joinNow()" class="button">Join</a>
 				</p>
@@ -21,7 +22,7 @@
 		<div class="details">
 			<tabset>
 				<tab heading="Hospital">
-					<p>This product covers EVERYTHING except:</p>
+					<p>This product covers EVERYTHING but:</p>
 					<ul class="notcovered no-bullet">
 						<li ng-repeat="h in hospitals('notcovered')"><i class="fa fa-times"></i> {{ h.type }}</li>
 					</ul>

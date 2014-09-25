@@ -37,5 +37,5 @@ angular.module('health3App')
     			desc: '"I am writing to congratulate you on your services with your customer service team and I was extremely happy with the customer service Jackson provided..."'
     		}
     	]
-    }
+    };
   });

@@ -7,7 +7,7 @@
  * # product
  */
 angular.module('health3App')
-  .directive('product', function ($state, $rootScope) {
+  .directive('product', function ($state, $rootScope, $modal) {
     return {
       templateUrl: 'views/product.html',
       restrict: 'E',
@@ -17,8 +17,9 @@ angular.module('health3App')
       link: function(scope) {
 
         scope.showDetails = false;
+        scope.rebatePercentage = 0;
 
-        scope.priced = $state.current.name === "products.priced" ? true : false;
+        scope.priced = $state.current.name === 'products.priced' ? true : false;
 
         scope.hospitals = function(slug){
         	return _.filter(scope.product.hospitals, function(h){
@@ -27,8 +28,8 @@ angular.module('health3App')
         };
 
         scope.showInfo = function(panel){
-          if(panel === 'details') scope.showDetails = true;
-          else scope.showDetails = false;
+          if(panel === 'details') { scope.showDetails = true; }
+          else { scope.showDetails = false; }
         };
 
         scope.getUserDetails = function(){
@@ -38,7 +39,7 @@ angular.module('health3App')
         scope.joinNow = function(){
           $rootScope.product = scope.product;
           $state.go('join.start');
-        }
+        };
 
         scope.weeklyPrice = function(){
           var product = scope.product;
@@ -49,20 +50,38 @@ angular.module('health3App')
             var rebateDiscount = (weeklyPrice / 100) * rebatePercentage;
             var weeklyPriceDiscounted = weeklyPrice - rebateDiscount;
 
+            scope.rebatePercentage = rebatePercentage;
+
             return '$' + weeklyPriceDiscounted.toFixed(2);
 
           } else {
             return 'from $' + product.minimum_price;
           }
-        }
+        };
+
+        scope.priceDetail = function(){
+          $modal.open({
+            templateUrl: 'views/product-price-detail.html',
+            resolve: {
+              product: function(){ return scope.product; },
+              data: function(){ 
+                return {
+                  price: scope.weeklyPrice(),
+                  rebate: scope.rebatePercentage,
+                  selections: $rootScope.personParams.selections
+                };
+              }
+            },
+            controller: 'ProductPriceDetailCtrl'
+          });
+        };
 
         scope.getRebatePercentage = function(selections){
 
-          if(selections.income === "tier4") return 0;
+          if(selections.income === 'tier4') { return 0; }
 
           var income = selections.income,
               age = selections.age,
-              policy = selections.policy,
               ageTier;
 
           var rebates = {
@@ -83,13 +102,13 @@ angular.module('health3App')
             }
           };
 
-          if(age === "18-30" || age === "31-65") ageTier = 2;
-          else if(age === "65-70") ageTier = 1;
-          else if(age === "71-100") ageTier = 0;
+          if(age === '18-30' || age === '31-65') { ageTier = 2; }
+          else if(age === '65-70') { ageTier = 1; }
+          else if(age === '71-100') { ageTier = 0; }
 
           return rebates[income][ageTier];
 
-        }
+        };
       } 
     };
   });

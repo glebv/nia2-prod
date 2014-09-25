@@ -14,7 +14,7 @@ angular.module('health3App')
     		return (price / 365) * 7;
     	},
     	getRebate: function(age, marital, income) {
-	      var age1, age2, ager, incomer, rebate, rebates, tier1, tier2, tier3;
+	      var age1, age2, ager, incomer, rebates, tier1, tier2, tier3;
 	      tier1 = 90000;
 	      tier2 = 102000;
 	      tier3 = 136000;
@@ -37,7 +37,7 @@ angular.module('health3App')
 	          2: 9.68
 	        }
 	      };
-	      if (marital === "Cpl" || marital === "Fam" || marital === "SPFam") {
+	      if (marital === 'Cpl' || marital === 'Fam' || marital === 'SPFam') {
 	        tier1 += tier1;
 	        tier2 += tier2;
 	        tier3 += tier3;
@@ -49,7 +49,7 @@ angular.module('health3App')
 	      } else if (income > tier2 && income < tier3) {
 	        incomer = 2;
 	      } else {
-	        return rebate = 0;
+	        return 0;
 	      }
 	      if (age < age1) {
 	        ager = 2;
@@ -60,5 +60,5 @@ angular.module('health3App')
 	      }
 	      return rebates[incomer][ager];
 	    }
-    }
+    };
   });

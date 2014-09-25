@@ -40,9 +40,9 @@ angular.module('health3App')
               }
             },
             controller: 'ProductsCustomiseCtrl',
-          }).result.then(function(result){
-            $state.transitionTo('join.start');
+          }).result.finally(function(){
+            $state.go('join.start');
           });
         }
-      })
+      });
 });

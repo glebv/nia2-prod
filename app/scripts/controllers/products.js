@@ -8,7 +8,7 @@
  * Controller of the health3App
  */
 angular.module('health3App')
-  .controller('ProductsCtrl', function ($scope) {
+  .controller('ProductsCtrl', function () {
     
   })
 
@@ -45,7 +45,7 @@ angular.module('health3App')
 
     Prices.get($rootScope.sampleProducts, params)
     .then(function(data){
-      data.push()
+      data.push({ name: 'empty' });
       $rootScope.products = data;
       $scope.products = data;
       $rootScope.productsLoaded = true;
@@ -53,7 +53,12 @@ angular.module('health3App')
 
   })
 
-  .controller('ProductsCustomiseCtrl', function ($scope, product){
-
+  .controller('ProductPriceDetailCtrl', function ($scope, product, data){
+    $scope.product = product;
+    $scope.data = data;
   });
+
+  // .controller('ProductsCustomiseCtrl', function ($scope, product){
+
+  // });
  
