@@ -267,9 +267,13 @@ section.testimonials{
 // PRODUCTS VIEW //
 .products-page{
 
+  .page-title{
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+
   .rn-carousel-container{
     position: relative;
-    padding-top: 2em;
 
     .rn-carousel-indicator{
       position: fixed;
@@ -367,6 +371,10 @@ html,
   strong{
     font-weight: 500;
   }
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: ProximaNova;
 }
 
 h1,

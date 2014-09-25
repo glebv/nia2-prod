@@ -1,6 +1,7 @@
 <h2>{{ product.nicename }}</h2>
 <h3>{{ data.price }}/week</h3>
+<p>${{ product.excess }} excess</p>
 
 <p><strong>How did we get this price?</strong></p>
 <p>This price is based on several factors. The base price is calculated using the state you live in and your marital status. We then use your age and income to calculate a government rebate of {{ data.rebate }}%, which we shave off the top for you.</p>
-<a ng-click="$close()" ui-sref="get-price.policy" class="small button">Change settings</a> <a ng-click="$close()" class="small button">Close</a>
+<a ng-click="$close()" ui-sref="get-price.policy" class="small button">Change preferences</a> <a ng-click="$close()" class="small button">Close</a>
