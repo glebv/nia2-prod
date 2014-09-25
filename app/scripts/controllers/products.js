@@ -32,16 +32,7 @@ angular.module('health3App')
 
     }
 
-    if($stateParams.productCode){
-
-      // get index from product_code
-      var n, productCode = $stateParams.productCode;
-
-      _.find($scope.products, function(p, i){
-        alert('fuck');     
-      });
-
-    }
+    // if($stateParams.slide) $scope.slideIndex = $stateParams.slide;
   })
 
   .controller('ProductsPricedCtrl', function ($scope, $rootScope, $stateParams, Prices){
@@ -52,13 +43,12 @@ angular.module('health3App')
 
     var params = 'policy/' + $stateParams.policy + '/state/' + $stateParams.state;
 
-    prices.get($rootScope.sampleProducts, params)
+    Prices.get($rootScope.sampleProducts, params)
     .then(function(data){
+      data.push()
       $rootScope.products = data;
       $scope.products = data;
       $rootScope.productsLoaded = true;
-
-      console.log($scope);
     });
 
   })

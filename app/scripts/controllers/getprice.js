@@ -8,9 +8,9 @@
  * Controller of the health3App
  */
 angular.module('health3App')
-  .controller('PriceCtrl', function ($scope, prices) {
+  .controller('PriceCtrl', function ($scope, Prices) {
     // SET OPTIONS //
-    $scope.options = prices.options;
+    $scope.options = Prices.options;
 
     $scope.$on('$stateChangeStart', 
 		function(event, toState, toParams, fromState, fromParams){

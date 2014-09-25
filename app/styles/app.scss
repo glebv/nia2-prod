@@ -54,8 +54,8 @@
   border-top: 1px solid #eee;
   background-color: #fff;
 
-  transform: translateY(rem-calc(44px));
-  transition: all .5s $easeOutExpo;
+  // transform: translateY(rem-calc(44px));
+  // transition: all .5s $easeOutExpo;
 
   &.scrolled{
     transform: translateY(0);
@@ -303,6 +303,11 @@ section.testimonials{
   p{
     color: #999;
   }
+
+  .details p,
+  .details ul{
+    @include grid-column(12);
+  }
 }
 
 // CRAZY FUCKING ANIMATIONS //
@@ -337,7 +342,7 @@ section.testimonials{
 }
 
 // Testimonial in/out animation //
-.ng-show-add
+
 
 // GENERAL GENERIC STYLES //
 

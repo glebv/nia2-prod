@@ -18,7 +18,7 @@ angular.module('health3App')
       })
 
       .state('products.viewOne', {
-        url: '/:productCode',
+        url: '/:slide',
         templateUrl: 'views/view-products.html',
         controller: 'ProductsViewCtrl'
       })
