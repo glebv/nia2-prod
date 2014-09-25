@@ -8,13 +8,23 @@
  * Service in the health3App.
  */
 angular.module('health3App')
-  .service('prices', function price($http) {
+  .factory('Prices', function price($http, $q) {
   	return {
-  		get: function(products, data, callback){
-  			$http.get("http://niahealthdata.com/api/priced-sample-products/" + products + '/params/' + data)
+  		get: function(skus, data){
+  			var defer = $q.defer();
+  			$http.get("http://niahealthdata.com/api/priced-sample-products/" + skus + '/params/' + data)
   			.success(function(result){
-  				callback(result);
+  				// convert resulting products to array of objects
+  				// instead of object containing objects.
+  				var resultsArray = [];
+  				_.each(result, function(r){ resultsArray.push(r) });
+  				defer.resolve(resultsArray);
+  			})
+  			.error(function(){
+  				defer.reject();
   			});
+
+  			return defer.promise;
   		},
 
   		getParams: function(obj){

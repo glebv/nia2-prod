@@ -44,6 +44,17 @@
 	</div>
 </section>
 
+<section class="home-products">
+	<div class="row">
+		<div class="small-12 columns product" ng-repeat="product in products">
+			<p class="no-margin"><small>from ${{ product.minimum_price }}/week</small></p>
+			<h3>{{ product.name }}</h3>
+			<p>{{ product.description }}</p>
+			<p><a ng-click="seeProduct($index)" class="small button">See details</a></p>
+		</div>
+	</div>
+</section>
+
 <!-- <section class="only-what-you-need middle-align">
 	<div class="row">
 		<div class="small-12 columns">

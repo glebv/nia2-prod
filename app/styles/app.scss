@@ -138,10 +138,6 @@ section.hero{
     p{
       font-weight: 200;
       font-size: rem-calc(18px);
-
-      &.no-margin{
-        margin: 0;
-      }
     }
 
     .fa-angle-down{
@@ -225,6 +221,14 @@ section.testimonials{
   }
 }
 
+// PRODUCTS ON HOMEPAGE //
+
+.home-products{
+  .product{
+
+  }
+}
+
 // WHY US PAGE //
 
 .happy-customers{
@@ -252,7 +256,7 @@ section.testimonials{
     &:nth-child(3){ background-color: $pink; }
     &:nth-child(4){ background-color: $blue; }
     &:nth-child(5){ background-color: $green; }
-    &:nth-child(6){ background-color: $dark-yellow; }
+    &:nth-child(6){ background-color: $product-yellow; }
     &:nth-child(7){ background-color: $purple; }
     &:nth-child(8){ background-color: $orange; }
 
@@ -356,6 +360,10 @@ h2{
 
 p{
   font-weight: 300;
+}
+
+.no-margin{
+  margin: 0;
 }
 
 .ui-container,

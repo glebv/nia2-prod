@@ -17,6 +17,12 @@ angular.module('health3App')
         controller: 'ProductsViewCtrl'
       })
 
+      .state('products.viewOne', {
+        url: '/:productCode',
+        templateUrl: 'views/view-products.html',
+        controller: 'ProductsViewCtrl'
+      })
+
       .state('products.priced', {
         url: '/priced/:policy/:state/:age/:income',
         templateUrl: 'views/view-products.html',

@@ -10,30 +10,57 @@
 angular.module('health3App')
   .controller('ProductsCtrl', function ($scope) {
     
-    // $scope.products = {};
-  	$scope.sampleProducts = 'SE60,B65,HCM65,H85,V65';
-
   })
 
-  .controller('ProductsViewCtrl', function ($scope, products){
-    $scope.productsLoaded = false;
-  	products.get($scope.sampleProducts, function(data){
-      $scope.products = data;
-      $scope.productsLoaded = true;
-    });
+  .controller('ProductsViewCtrl', function ($scope, $rootScope, $stateParams, Products){
+
+    $scope.slideIndex = 0;
+
+    if($rootScope.products){
+
+      $scope.products = $rootScope.products;
+
+    } else {
+
+      $rootScope.productsLoaded = false;
+      Products.get($rootScope.sampleProducts)
+      .then(function(result){
+        $scope.products = result;
+        $rootScope.products = result;
+        $rootScope.productsLoaded = true;
+      });
+
+    }
+
+    if($stateParams.productCode){
+
+      // get index from product_code
+      var n, productCode = $stateParams.productCode;
+
+      _.find($scope.products, function(p, i){
+        alert('fuck');     
+      });
+
+    }
   })
 
-  .controller('ProductsPricedCtrl', function ($scope, $rootScope, $stateParams, prices){
+  .controller('ProductsPricedCtrl', function ($scope, $rootScope, $stateParams, Prices){
+
   	$rootScope.personParams.priced = true;
     $rootScope.personParams.selections = $stateParams;
-    $scope.productsLoaded = false;
+    $rootScope.productsLoaded = false;
 
     var params = 'policy/' + $stateParams.policy + '/state/' + $stateParams.state;
 
-    prices.get($scope.sampleProducts, params, function(data){
+    prices.get($rootScope.sampleProducts, params)
+    .then(function(data){
+      $rootScope.products = data;
       $scope.products = data;
-      $scope.productsLoaded = true;
+      $rootScope.productsLoaded = true;
+
+      console.log($scope);
     });
+
   })
 
   .controller('ProductsCustomiseCtrl', function ($scope, product){
