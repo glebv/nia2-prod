@@ -15,11 +15,11 @@ The most important to note are:
 
 Grunt has 2 primary tasks: `serve` and `build`.
 
-`serve` creates a development server @ `127.0.0.1:9000` where you can preview everything, live reload as you work.
+`$ grunt serve` creates a development server @ `127.0.0.1:9000` where you can preview everything, live reload as you work.
 
-`build` builds a production ready package. You shouldn't have to worry about this one though.
+`$ grunt build` builds a production ready package. You shouldn't have to worry about this one though.
 
-`test` for running e2e tests.
+`$ grunt test` for running e2e tests (that need to be written).
 
 ## Bower
 
@@ -35,11 +35,16 @@ This project uses the Yeoman generator to scaffold angular files. **PLEASE USE Y
 
 use it like so: 
 
-`$ yo angular:controller MyController`
-`$ yo angular:view my-view`
-`$ yo angular:directive my-directive`
-`$ yo angular:service MyService`
-`$ yo angular:factory MyService`
+`$ yo angular:controller MyController` - creates a new controller 'MyControllerCtrl'
+
+`$ yo angular:view my-view` - creates a new view 'my-view.html'
+
+`$ yo angular:directive my-directive` - creates a new directive - <my-directive></my-directive>
+
+`$ yo angular:service MyService` - creates a new service - MyService
+
+`$ yo angular:factory MyService` - creates a new service - MyFactory
+
 
 More here: [More on $ yo angular here](https://github.com/yeoman/generator-angular)
 
