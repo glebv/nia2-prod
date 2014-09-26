@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js">
   <head>
+
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
@@ -16,6 +17,17 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/app.css">
     <!-- endbuild -->
+
+    <!-- THANK YOU TYPEKIT FOR THIS SEXY FONT "Phoreus Cherokee" -->
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'koc2gft',
+          scriptTimeout: 3000
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
 
     <!-- <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic' rel='stylesheet' type='text/css'> -->
   </head>
@@ -44,6 +56,19 @@
 
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
+    </script>
+
+    <!-- Livechat code - just to see it working -->
+    <script type="text/javascript">
+    var __lc = {};
+    __lc.license = 3061242;
+    __lc.group = 7;
+
+    (function() {
+        var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+        lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+    })();
     </script>
 
     <!-- build:js(.) scripts/oldieshim.js -->
@@ -99,6 +124,7 @@
         <script src="scripts/services/testimonials.js"></script>
         <script src="scripts/directives/health-footer.js"></script>
         <script src="scripts/services/reasons.js"></script>
+        <script src="scripts/filters/slugify.js"></script>
         <!-- endbuild -->
 </body>
 </html>

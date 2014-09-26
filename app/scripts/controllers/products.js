@@ -16,20 +16,21 @@ angular.module('health3App')
 
     $scope.slideIndex = 0;
 
-    if($rootScope.products){
-
-      $scope.products = $rootScope.products;
-
-    } else {
+    if(!$rootScope.products){
 
       $rootScope.productsLoaded = false;
       Products.get($rootScope.sampleProducts)
-      .then(function(result){
-        $scope.products = result;
-        $rootScope.products = result;
+      .then(function(data){
+        $rootScope.products = data;
         $rootScope.productsLoaded = true;
+
+        $scope.visibleProducts = angular.copy(data);
+        $scope.visibleProducts.push({ name: 'empty' });
       });
 
+    } else {
+      $scope.visibleProducts = angular.copy($rootScope.products);
+      $scope.visibleProducts.push({ name: 'empty' });
     }
 
     // if($stateParams.slide) $scope.slideIndex = $stateParams.slide;
@@ -45,10 +46,13 @@ angular.module('health3App')
 
     Prices.get($rootScope.sampleProducts, params)
     .then(function(data){
-      data.push({ name: 'empty' });
       $rootScope.products = data;
-      $scope.products = data;
       $rootScope.productsLoaded = true;
+
+      // create a copy so we can inject the extra slide
+      // without disrupting the products object
+      $scope.visibleProducts = angular.copy($rootScope.products);
+      $scope.visibleProducts.push({ name: 'empty' });
     });
 
   })

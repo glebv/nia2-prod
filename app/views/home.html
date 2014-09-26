@@ -37,20 +37,41 @@
 		 ng-click="showReason = !showReason">
 		 
 		<div class="reason">
-			<div class="first">{{ reason.name }} <br> <i class="fa fa-angle-down"></i></div>
+			<div class="first tk-phoreuscherokee">{{ reason.name }} <br> <i class="fa fa-angle-down"></i></div>
 			<div class="second">{{ reason.desc }}</div>
 		</div>
 		
 	</div>
 </section>
 
-<section class="home-products">
+<section class="home-products colours">
 	<div class="row">
-		<div class="small-12 columns product" ng-repeat="product in products">
-			<p class="no-margin"><small>from ${{ product.minimum_price }}/week</small></p>
-			<h3>{{ product.nicename }}</h3>
-			<p>{{ product.description }}</p>
-			<p><a ng-click="seeProduct($index)" class="small button">See details</a></p>
+		<div class="small-12 columns">
+			<p class="small-title">Get cover that suits</p>
+			<p class="large-title">YOU <a ui-sref="products.view">See products <i class="fa fa-angle-right"></i></a></p>
+		</div>
+		<div class="small-12 columns product {{ product.nicename | slugify }}" ng-repeat="product in products" ng-click="seeProduct($index)">
+			<h3 class="tk-phoreuscherokee">{{ product.nicename }}</h3>
+			<p>{{ product.description }} <span class="min-price">From ${{ product.minimum_price }}/week.</span></p>
+		</div>
+	</div>
+</section>
+
+<section class="middle-align">
+	<div class="row">
+		<div class="small-12 columns">
+			<h3>Let's have a chat!</h3>
+	        <p>Give us a call, or live chat with us to discuss what we can do for you.</p>
+	        <p>
+	          <a href="tel:130000000" class="button">Call us</a> 
+	          <a href="sms:+64231231" class="button">SMS us</a>
+	        </p>
+	        <p>
+	          <a class="button">Livechat</a>
+	        </p> 
+	        <p>
+	          <a ui-sref="quote.get" class="button">Get a quote</a>
+	        </p>
 		</div>
 	</div>
 </section>

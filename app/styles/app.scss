@@ -197,10 +197,10 @@ section.testimonials{
     overflow-y: hidden;
     transform: translateY(0);
 
-    &:nth-child(1){ background-color: lighten($purple, 20); }
-    &:nth-child(2){ background-color: lighten($orange, 20); }
-    &:nth-child(3){ background-color: lighten($pink, 20); }
-    &:nth-child(4){ background-color: lighten($blue, 20); }
+    // &:nth-child(1){ background-color: lighten($product-purple, 10); }
+    // &:nth-child(2){ background-color: lighten($product-orange, 10); }
+    // &:nth-child(3){ background-color: lighten($product-pink, 10); }
+    // &:nth-child(4){ background-color: lighten($product-blue, 10); }
 
     &.show-reason .reason{
       transform: translateY(-100%);
@@ -210,6 +210,9 @@ section.testimonials{
   .reason{
     transition: all .5s $easeOutExpo;
     height: 100%;
+
+    font-weight: 500;
+
     > div{
       height: 100%;
       padding: 1em 0;
@@ -223,8 +226,68 @@ section.testimonials{
 
 // PRODUCTS ON HOMEPAGE //
 
-.home-products{
-  .product{
+section.home-products{
+  
+  .small-title{
+    font-size: rem-calc(34px);
+    color: #555;
+    margin-top: 1em;
+    margin-bottom: 0;
+    line-height: 1;
+  }
+
+  .large-title{
+    font-size: rem-calc(56px);
+    color: #555;
+    position: relative;
+    line-height: 1;
+    margin-bottom: .5em;
+
+    a{
+      display: block;
+      position: absolute;
+      right: 0;
+      top: rem-calc(5px);
+
+      color: $pink;
+      font-size: rem-calc(14px);
+      text-transform: uppercase;
+
+      border: 1px solid $pink;
+      border-radius: 2px;
+      padding: 11px 20px;
+    }
+  }
+
+  &.colours{
+    .product{
+      padding-top: 1em;
+      padding-bottom: 1em;
+      color: #fff;
+
+      &.simpleessentials60   { background-color: $product-orange; }
+      &.basic65              { background-color: $product-yellow; }
+      &.heartcaremiddle65    { background-color: $product-blue; }
+      &.vitality65           { background-color: $product-lilac; }
+      &.high65               { background-color: $product-purple; }
+
+      &.simpleessentials60 h3   { color: darken($product-orange, 30); }
+      &.basic65 h3              { color: darken($product-yellow, 30); }
+      &.heartcaremiddle65 h3    { color: darken($product-blue, 30); }
+      &.vitality65 h3           { color: darken($product-lilac, 30); }
+      &.high65 h3               { color: darken($product-purple, 30); }
+    }
+  }
+
+  &.pictures{
+
+    .product{
+      &.simpleessentials60 h3   { color: $product-orange; }
+      &.basic65 h3              { color: $product-yellow; }
+      &.heartcaremiddle65 h3    { color: $product-blue; }
+      &.vitality65 h3           { color: $product-lilac; }
+      &.high65 h3               { color: $product-purple; }
+    }
 
   }
 }
@@ -360,6 +423,10 @@ section.testimonials{
 
 
 // GENERAL GENERIC STYLES //
+
+#livechat-compact-container{
+  display: none;
+}
 
 body, 
 html, 
