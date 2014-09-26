@@ -39,7 +39,7 @@ use it like so:
 
 `$ yo angular:view my-view` - creates a new view 'my-view.html'
 
-`$ yo angular:directive my-directive` - creates a new directive - <my-directive></my-directive>
+`$ yo angular:directive my-directive` - creates a new directive - &lt;my-directive&rt;&lt;/my-directive&rt;
 
 `$ yo angular:service MyService` - creates a new service - MyService
 
