@@ -265,17 +265,32 @@ section.home-products{
       padding-bottom: 1em;
       color: #fff;
 
+      .details{
+        display: inline-block;
+        padding: 5px 10px;
+        color: #fff;
+        border-radius: 2px;
+      }
+
       &.simpleessentials60   { background-color: $product-orange; }
       &.basic65              { background-color: $product-yellow; }
       &.heartcaremiddle65    { background-color: $product-blue; }
       &.vitality65           { background-color: $product-lilac; }
       &.high65               { background-color: $product-purple; }
 
+      &.simpleessentials60 .details   { background-color: darken($product-orange, 15); }
+      &.basic65 .details              { background-color: darken($product-yellow, 15); }
+      &.heartcaremiddle65 .details    { background-color: darken($product-blue, 15); }
+      &.vitality65 .details           { background-color: darken($product-lilac, 15); }
+      &.high65 .details               { background-color: darken($product-purple, 15); }
+
       &.simpleessentials60 h3   { color: darken($product-orange, 30); }
       &.basic65 h3              { color: darken($product-yellow, 30); }
       &.heartcaremiddle65 h3    { color: darken($product-blue, 30); }
       &.vitality65 h3           { color: darken($product-lilac, 30); }
       &.high65 h3               { color: darken($product-purple, 30); }
+
+
     }
   }
 

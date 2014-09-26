@@ -53,6 +53,7 @@
 		<div class="small-12 columns product {{ product.nicename | slugify }}" ng-repeat="product in products" ng-click="seeProduct($index)">
 			<h3 class="tk-phoreuscherokee">{{ product.nicename }}</h3>
 			<p>{{ product.description }} <span class="min-price">From ${{ product.minimum_price }}/week.</span></p>
+			<a class="details">Details <i class="fa fa-angle-right"></i></a>
 		</div>
 	</div>
 </section>
