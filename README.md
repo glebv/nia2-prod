@@ -1,6 +1,6 @@
 # HEALTH.COM.AU v3 - Angular style
 
-Woohoo! The new health site is on its way.
+Woohoo! The new health site is on its way. Please read the following before you start developing!
 
 ## Installation
 After cloning, make sure you run `$ npm install && bower install`.
@@ -15,7 +15,7 @@ The most important to note are:
 
 Grunt has 2 primary tasks: `serve` and `build`.
 
-`serve` creates a development server @ 127.0.0.1:9000 where you can preview everything, live reload as you work.
+`serve` creates a development server @ `127.0.0.1:9000` where you can preview everything, live reload as you work.
 
 `build` builds a production ready package. You shouldn't have to worry about this one though.
 
@@ -27,7 +27,7 @@ Bower is super cool - this is used for additional components, i.e. angular plugi
 
 Please use the `--save` operator when using bower install, so we all get the sexy packages.
 
-`$ bower install angular-awesome-plugin --save`
+`$ bower install bower-component --save`
 
 ## Yo
 
@@ -42,3 +42,7 @@ use it like so:
 `$ yo angular:factory MyService`
 
 More here: [More on $ yo angular here](https://github.com/yeoman/generator-angular)
+
+# Contributing
+
+Please push your own branch, and submit a pull request. I'll code review & merge it all in!
