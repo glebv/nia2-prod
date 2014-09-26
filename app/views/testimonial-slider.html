@@ -1,7 +1,9 @@
-<div class="item" ng-repeat="item in items" ng-hide="!isCurrentSlideIndex($index)">
-	<h2>{{ item.desc }}</h2>
-	<p class="cite">{{ item.name }}, {{ item.location }}</p>
+<div class="content-slider">
+	<div class="item" ng-repeat="item in items" ng-hide="!isCurrentSlideIndex($index)">
+		<h2>{{ item.desc }}</h2>
+		<p class="cite">{{ item.name }}, {{ item.location }}</p>
+	</div>
+	<ul class="controls">
+		<li ng-repeat="item in items" ng-click="setCurrentSlideIndex($index)" ng-class="{ active : isCurrentSlideIndex($index) }">{{ item.name }}</li>
+	</ul>
 </div>
-<ul class="controls">
-	<li ng-repeat="item in items" ng-click="setCurrentSlideIndex($index)" ng-class="{ active : isCurrentSlideIndex($index) }">{{ item.name }}</li>
-</ul>

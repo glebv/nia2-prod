@@ -1,0 +1,194 @@
+// COLOUR BAR OW YES //
+
+.colour-bar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
+  height: .25rem;
+  width: 100%;
+
+  > div {
+    height: .25rem;
+    width: 14.28%;
+    float: left;
+  }
+
+  .purple { background-color: $purple }
+  .orange { background-color: $orange }
+  .pink   { background-color: $pink   }
+  .blue   { background-color: $blue   }
+  .yellow { background-color: $yellow }
+  .green  { background-color: $green  }
+  .grey   { background-color: $grey   }
+  .white  { background-color: #fff    }
+}
+
+// NAVIGATION BAR //
+
+.bar{
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  right: 0;
+
+  height: rem-calc(44px);
+
+  border-top: 1px solid #eee;
+  background-color: #fff;
+
+  // transform: translateY(rem-calc(44px));
+  // transition: all .5s $easeOutExpo;
+
+  &.scrolled{
+    transform: translateY(0);
+  }
+
+  &.bottom{
+    bottom: 0;
+
+    ul{
+      margin-left: 0;
+
+      li{
+        display: inline-block;
+        text-align: center;
+        width: 23.5%;
+
+        a{
+          font-size: rem-calc(12px);
+          padding-top: rem-calc(10px);
+          display: block;
+
+          color: #404040;
+
+          i{
+            display: block;
+            margin-bottom: rem-calc(-3px);
+          }
+        }
+      }
+    }
+  }
+}
+
+// PRODUCT CARD //
+.product-card{
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 0.25em;
+  header{
+    border-bottom: 1px solid #ddd;
+  }
+
+  p{
+    color: #999;
+  }
+
+  .details p,
+  .details ul{
+    // @grid-column(12);
+  }
+
+  h4{
+    span{
+      display: none;
+    }
+
+    &.priced span{
+      display: inline-block;
+    }
+  }
+
+}
+
+// CONTACT BLOCK //
+
+ul.contact-block{
+  margin-left: 0;
+
+  li{
+    width: 50%;
+    float: left;
+    position: relative;
+    z-index: 9;
+
+    a{
+      display: block;
+      text-align: center;
+      background-color: $grey;
+      color: #fff;
+
+      padding: 1.5em 0;
+
+      &.call      { background-color: $purple; }
+      &.email     { background-color: $orange; }
+      &.livechat  { background-color: $pink; }
+      &.customers { background-color: $blue; }
+    }
+
+    &.form{
+      width: 100%;
+      height: rem-calc(180px);
+      float: none;
+      clear: both;
+      z-index: 8;
+      transform: translateY(-170px);
+      transition: all .5s $easeOutExpo;
+
+      &.form-visible{
+        transform: translateY(0);
+      }
+
+      form{
+        background-color: $green;
+        padding-top: 1em;
+        padding-bottom: rem-calc(50px);
+        position: relative;
+
+        color: #fff;
+
+        .show-form-button{
+          position: absolute;
+          bottom: 0;
+          left: 0;
+
+          width: 100%;
+          height: rem-calc(50px);
+
+          background-color: rgba(255,255,255,0);
+          z-index: 10;
+
+          &:hover{
+            background-color: rgba(255,255,255,0.2);
+          }
+        }
+
+        [type="number"]{
+          background: lighten($green, 20);
+          box-shadow: none;
+          border: none;
+          color: darken($green, 30);
+          font-size: rem-calc(22px);
+        }
+
+        [type="submit"]{
+          position: absolute;
+          bottom: 0;
+          left: 0;
+
+          width: 100%;
+          height: rem-calc(50px);
+
+          border: none;
+          background-color: darken($green, 10);
+          color: #fff;
+          font: rem-calc(24px) ProximaNova;
+        }
+      }
+    }
+  }
+}

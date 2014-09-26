@@ -4,88 +4,12 @@
 // Include important shit //
 @import 'config';
 @import 'settings';
+@import 'directives';
+
 
 // OI! LOOKING FOR GENERAL BODY STYLES & SHIT?
-// CHECK THE BOTTOM OF THE DOC - I PUT THEM THERE
-// BECAUSE THEY WERE TOO MESSY UP HERE AND I LOVE
-// CLEAN CODE. CLEAN CODE FOR EVERYONE.
-
-#sorrynotsorry{}
-
-// COLOUR BAR OW YES //
-
-.colour-bar{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-
-  height: .25rem;
-  width: 100%;
-
-  > div {
-    height: .25rem;
-    width: 14.28%;
-    float: left;
-  }
-
-  .purple { background-color: $purple }
-  .orange { background-color: $orange }
-  .pink   { background-color: $pink   }
-  .blue   { background-color: $blue   }
-  .yellow { background-color: $yellow }
-  .green  { background-color: $green  }
-  .grey   { background-color: $grey   }
-  .white  { background-color: #fff    }
-}
-
-// NAVIGATION //
-
-.bar{
-  width: 100%;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  right: 0;
-
-  height: rem-calc(44px);
-
-  border-top: 1px solid #eee;
-  background-color: #fff;
-
-  // transform: translateY(rem-calc(44px));
-  // transition: all .5s $easeOutExpo;
-
-  &.scrolled{
-    transform: translateY(0);
-  }
-
-  &.bottom{
-    bottom: 0;
-
-    ul{
-      margin-left: 0;
-
-      li{
-        display: inline-block;
-        text-align: center;
-        width: 23.5%;
-
-        a{
-          font-size: rem-calc(12px);
-          padding-top: rem-calc(10px);
-          display: block;
-
-          i{
-            display: block;
-            margin-bottom: rem-calc(-3px);
-          }
-        }
-      }
-    }
-  }
-}
+// I PUT THEM HERE:
+@import 'generic'; #sorrynotsorry{}
 
 // HERO SECTION ON HOMEPAGE //
 
@@ -307,6 +231,12 @@ section.home-products{
   }
 }
 
+// CONTACT ON HOMEPAGE //
+section.contact{
+  padding-top: 2em;
+  padding-bottom: 5em;
+}
+
 // WHY US PAGE //
 
 .happy-customers{
@@ -372,36 +302,7 @@ section.home-products{
   } 
 }
 
-// PRODUCT CARD - OUTSIDE PRODUCTS PAGE COZ IT COULD BE ANYWHERE //
 
-.product-card{
-  background-color: #fff;
-  border: 1px solid #ddd;
-  margin: 0.25em;
-  header{
-    border-bottom: 1px solid #ddd;
-  }
-
-  p{
-    color: #999;
-  }
-
-  .details p,
-  .details ul{
-    // @grid-column(12);
-  }
-
-  h4{
-    span{
-      display: none;
-    }
-
-    &.priced span{
-      display: inline-block;
-    }
-  }
-
-}
 
 // CRAZY FUCKING ANIMATIONS //
 
@@ -437,58 +338,3 @@ section.home-products{
 // Testimonial in/out animation //
 
 
-// GENERAL GENERIC STYLES //
-
-#livechat-compact-container{
-  display: none;
-}
-
-body, 
-html, 
-.container{
-  height: 100%;
-  font-family: ProximaNova;
-  font-weight: 300;
-
-  strong{
-    font-weight: 500;
-  }
-}
-
-h1, h2, h3, h4, h5, h6{
-  font-family: ProximaNova;
-}
-
-h1,
-h2{
-  font-weight: 200;
-}
-
-p{
-  font-weight: 300;
-}
-
-.no-margin{
-  margin: 0;
-}
-
-.ui-container,
-.pages[ui-view]{
-  height: 100%;
-}
-
-section:nth-child(even){
-  background-color: #f6f6f6;
-}
-
-section.middle-align{
-  height: 115%;
-  // @media #{$medium-up}{height: 100%}
-  width: 100%;
-  display: table;
-  position: relative;
-  > div {
-    display: table-cell;
-    vertical-align: middle;
-  }
-}

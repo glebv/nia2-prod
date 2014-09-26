@@ -10,7 +10,7 @@
  * Controller of the health3App
  */
 angular.module('health3App')
-  .controller('MainCtrl', function ($scope, $rootScope, $document, $state, Products) {
+  .controller('MainCtrl', function ($scope, $rootScope, $document, $state, $window, Products) {
 
   	// I STORE PRICE SELECTIONS //
     $rootScope.personParams = {
@@ -49,7 +49,6 @@ angular.module('health3App')
     };
 
     $scope.openLivechat = function(){
-      LC_API.open_chat_window();
-      alert('fuk');
-    }
+      $window.LC_API.open_chat_window();
+    };
   });
