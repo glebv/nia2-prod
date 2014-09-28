@@ -1,22 +1,25 @@
 <div class="row">
 	<div class="small-12 columns">
-		<h2>You're gonna love your Basic65 health cover</h2>
+		<h2>You're gonna love your {{ product.name }} health cover</h2>
 		<p>Let's get some information off you first.</p>
 		<p>
 			<label for="name">Name: </label>
-			<input type="text" name="name" ng-model="name">
+			<input type="text" name="name" ng-model="u.name" required>
+			<span ng-show="(joinForm.name.$error.required || (joinForm.name.$invalid && !joinForm.name.$pristine)) && control.submitted">Name is required</span>
 		</p>
 		<p>
 			<label for="name">Email: </label>
-			<input type="email" name="email" ng-model="email">
+			<input type="email" name="email" ng-model="u.email" required>
+			<span ng-show="(joinForm.email.$error.required || (joinForm.email.$invalid && !joinForm.email.$pristine)) && control.submitted">Please enter valid email ID</span>
 		</p>
 		<p>
 			<label for="name">Mobile Number: </label>
-			<input type="text" name="phone" ng-model="phone">
+			<input type="text" name="phone" ng-model="u.phone" required>
+			<span ng-show="(joinForm.phone.$error.required || (joinForm.phone.$invalid && !joinForm.phone.$pristine)) && control.submitted">Mobile number is required</span>
 		</p>
 	</div>
 	<footer class="small-12 columns">
-		<a class="button" ui-sref="join.license">Next: ID</a>
+		<a class="button" ng-click="process(joinForm.$valid)">Next: ID</a>
 	</footer>
 </div>
 

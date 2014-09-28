@@ -1,11 +1,12 @@
 <div class="row">
 	<div class="small-12 columns">
-		<h2>Please snap a photo of your license</h2>
-		<p>From this, we can easily grab your age, address, etc</p>
+		<h2>{{ page.title }}</h2>
+		<p>{{ page.desc }}</p>
 
 		<p>
 			<label for=""></label>
 			<input type="file" ng-file-select="onFileSelect($files)">
+			<span ng-show="!fileUpload.isValid">Please upload only *.jpg or *.jpeg or *.png file</span>
 		</p>
 	</div>
 </div>

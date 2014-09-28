@@ -36,11 +36,17 @@ angular.module('health3App')
     	if(to.name === 'products.view' && $rootScope.personParams.priced){
     		$state.go('products.priced');
     	}
+
     });
 
     // TRACK PREVIOUS STATE //
     $rootScope.previousState = 'home';
     $rootScope.$on('$stateChangeSuccess', function(ev, to, toParams, from){
+
+      if(from.name == '' && (to.name === 'join.license' || to.name === 'join.complete' || to.name === 'join.done')) {
+        $state.go('join.start');
+      }
+
       $rootScope.previousState = from.name;
     });
 

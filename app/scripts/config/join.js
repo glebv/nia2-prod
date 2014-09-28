@@ -16,15 +16,31 @@ angular.module('health3App')
   })
 
   .state('join.license', {
-    url: '/license',
+    url: '/drivers-license',
     templateUrl: 'views/join-upload.html',
     controller: 'JoinLicenseCtrl'
   })
 
   .state('join.medicare', {
-    url: '/medicare',
+    url: '/medicare-card',
     templateUrl: 'views/join-upload.html',
     controller: 'JoinMedicareCtrl'
+  })
+
+  .state('join.current', {
+    url: '/current-insurer',
+    templateUrl: 'views/join-upload.html',
+    controller: 'JoinCurrentInsurerCtrl'
+  })
+
+  .state('join.complete', {
+    url: '/complete',
+    templateUrl: 'views/join-complete.html'
+  })
+
+  .state('join.done', {
+    url: '/done',
+    templateUrl: 'views/join-done.html'
   });
 
 });
