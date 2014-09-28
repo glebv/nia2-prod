@@ -15,6 +15,8 @@ angular.module('health3App')
         scope.formButtonText = 'Call me back please!';
         scope.processing = false;
 
+        console.log('y u no here');
+
         scope.showForm = function(){
         	scope.formVisible = true;
         	scope.formButtonText = 'Submit phone number';
