@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="small-12 columns">
+		<div ng-show="!isAlternateText">
+			<h2>Is the address on this license your current address?</h2>
+			<p>
+				<button class="button" ng-click="closeModal()">Yes</button>
+				<button class="button" ng-click="showAlternateText()">No</button>
+			</p>
+		</div>
+
+		<div ng-show="isAlternateText">
+			<h1>Please enter your current address</h1>
+			<p>
+				<input type="text" name="alternateText" ng-model="c.alternateText" value="" />
+			</p>
+			<p>
+				<button class="button" ng-click="closeModal()">Confirm</button>	
+			</p>	
+		</div>	
+	</div>
+</div>

@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="small-12 columns">
+		<h2>You have successfully signed up with the following details</h2>
+		<p>
+			<label for="name">Name: </label>
+			<span>{{u.name}}</span>
+		</p>
+		<p>
+			<label for="name">Email: </label>
+			<span>{{u.email}}</span>
+		</p>
+		<p>
+			<label for="name">Mobile Number: </label>
+			<span>{{u.phone}}
+		</p>
+		<p ng-show="u.images.length != 0">
+			<img ng-repeat="image in u.images" ng-src="{{image}}" heigth="100" width="100" />
+		</p>		
+		<p ng-show="u.alternateText">
+			<label for="name">Alternate Message: </label>
+			<span>{{u.alternateText}}
+		</p>	
+	</div>
+</div>
+
