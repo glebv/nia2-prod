@@ -4,33 +4,37 @@
 			<header class="small-12 columns">
 				<h2 class="tk-phoreuscherokee">{{product.nicename}}</h2>
 			</header>
-			<div class="short-desc small-12 columns">
-				{{product.description}}
+			<div class="short-desc small-12 columns clearfix">
+				<p>{{product.description}}</p>
 				<!-- <p>
 					This covers everything except for: 
 					<span ng-repeat="h in hospitals('notcovered') | limitTo:3 ">{{ h.type }}, </span>
 					and {{ hospitals('notcovered').length - 3 }} others services.
 				</p> -->
-
-				<h4 ng-class="{ 'priced' : priced }"><span class="price">{{ weeklyPrice() }}</span>/week <span ng-click="priceDetail()">?</span></h4>
-				<p>
-					<a ng-hide="priced" ng-click="getUserDetails()" class="button">Quote me</a>
-					<a ng-show="priced" ng-click="joinNow()" class="button">Join</a>
+				
+				<h4 ng-class="{ 'priced' : priced }" ng-click="priceDetail()">
+					<em ng-hide="priced">from<br></em>
+					<span class="dollar-amount" ng-bind-html="weeklyPrice()"></span>/week <br>
+					<em ng-show="priced">tap price for breakdown<br></em>
+				</h4>
+				<p class="buttons">
+					<a ng-hide="priced" ng-click="getUserDetails()" class="radius rounded small button">Quote me</a>
+					<a ng-show="priced" ng-click="joinNow()" class="radius rounded small button">Join</a>
 				</p>
 			</div>
 		</div>
 		<div class="details">
 			<tabset>
 				<tab heading="Hospital">
-					<p>This product covers EVERYTHING but:</p>
+					<p class="panel">This product covers EVERYTHING except:</p>
 					<ul class="notcovered no-bullet">
 						<li ng-repeat="h in hospitals('notcovered')"><i class="fa fa-times"></i> {{ h.type }}</li>
 					</ul>
-					<p>This product has rerestricted cover for:</p>
+					<p class="panel">This product has rerestricted cover for:</p>
 					<ul class="restricted no-bullet">
 						<li ng-repeat="h in hospitals('restrictedcover')"><i class="fa fa-exclamation-triangle"></i> {{ h.type }}</li>
 					</ul>
-					<p>This product covers:</p>
+					<p class="panel">This product covers:</p>
 					<ul class="covered no-bullet">
 						<li ng-repeat="h in hospitals('covered')"><i class="fa fa-check"></i> {{ h.type }}</li>
 					</ul>

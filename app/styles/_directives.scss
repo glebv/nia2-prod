@@ -75,7 +75,7 @@
   }
 }
 
-// PRODUCT CARD //
+// PRODUCT DIRECTIVE //
 .product-card{
   background-color: #fff;
   border: 1px solid #ddd;
@@ -83,29 +83,120 @@
 
   box-shadow: 0 3px 2px #aaa;
 
+  &.simpleessentials60{ 
+    h2,
+    .dollar-amount{
+      color: $product-orange;
+    }
+  }
+
+  &.basic65{ 
+    h2,
+    .dollar-amount{
+      color: $product-yellow;
+    }
+  }
+
+  &.heartcaremiddle65{ 
+    h2,
+    .dollar-amount{
+      color: $product-blue;
+    }
+  }
+
+  &.vitality65{ 
+    h2,
+    .dollar-amount{
+      color: $product-lilac;
+    }
+  }
+
+  &.high65{ h2, .dollar-amount{ color: $product-purple; } }
+
   header{
     border-bottom: 1px solid #ddd;
 
     h2{
       margin: .7em 0;
+      font-weight: 600;
     }
+  }
+
+  p.panel{
+    border-left: none;
+    border-right: none;
   }
 
   p{
     color: #999;
   }
 
-  .short-desc{
-    margin-top: 1em;
+  ul{
+    margin-bottom: 1em;
   }
 
-  .details p,
-  .details ul{
-    @include grid-column(12);
+  .short-desc{
+    margin-top: 1em;
+    h4{
+      line-height: 1;
+      float: left;
+      color: #aaa;
+
+      &.priced{
+        margin-top: 0;
+      }
+
+      em{
+        font-size: 0.8rem;
+        color: #aaa;
+        font-style: none;
+      }
+
+      span.dollar-amount{
+        font-size: rem-calc(28px);
+      }
+    }
+
+    p.buttons{
+      float: right;
+      margin-bottom: 0;
+    }
+  }
+
+  .details{
+    p,
+    ul{
+      @include grid-column(12);
+    }
+
+    dl.tabs{
+      dd{
+        width: 50%;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+          border-top: 1px solid #ddd;
+        
+        a{
+          font-family: ProximaNova;
+          text-transform: uppercase;
+          font-weight: 400;
+        }
+        
+
+        &:last-child{
+          border-right: none;
+        }
+
+        &.active{
+          border-bottom: none;
+        }
+      }
+    }
   }
 
   h4{
-    span{
+    span.q{
       display: none;
     }
 

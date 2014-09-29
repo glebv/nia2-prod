@@ -43,6 +43,7 @@ angular.module('health3App')
 
         scope.weeklyPrice = function(){
           var product = scope.product;
+
           if(product.rate){
 
             var weeklyPrice = ((product.rate.price / 365) * 7).toFixed(2);
@@ -55,7 +56,7 @@ angular.module('health3App')
             return '$' + weeklyPriceDiscounted.toFixed(2);
 
           } else {
-            return 'from $' + product.minimum_price;
+            return '$' + product.minimum_price;
           }
         };
 
