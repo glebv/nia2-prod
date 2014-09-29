@@ -9,9 +9,5 @@
  */
 angular.module('health3App')
   .controller('WhyUsCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    
   });

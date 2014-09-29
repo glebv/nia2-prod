@@ -30,7 +30,8 @@
 </section>
 
 <section class="reasons">
-	<div class="small-6 columns" 
+	<reason ng-repeat="reason in reasons" content="reason"></reason>
+	<!-- <div class="small-6 columns" 
 		 ng-repeat="reason in reasons"
 		 ng-init="showReason = false" 
 		 ng-class="{ 'show-reason' : showReason }" 
@@ -41,7 +42,7 @@
 			<div class="second">{{ reason.desc }}</div>
 		</div>
 		
-	</div>
+	</div> -->
 </section>
 
 <section class="home-products colours">

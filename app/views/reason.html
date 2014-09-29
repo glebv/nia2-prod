@@ -1,0 +1,7 @@
+<div class="small-6 columns reason-container"
+		 class="show-{{ state.num }}" 
+		 ng-click="nextPanel()">
+	<div class="reason show-{{ state.num }}">
+		<div ng-repeat="item in content" ng-class="{ 'tk-phoreuscherokee' : state.num === $index+1 }"><p ng-bind-html="item.text"></p> <i class="fa fa-angle-down" ng-show="$index === 0"></i></div>
+	</div>
+</div>

@@ -125,6 +125,11 @@
   p.panel{
     border-left: none;
     border-right: none;
+    font-size: .8em;
+
+    &.pink{ color: $pink; }
+    &.orange{ color: $orange; }
+    &.green{ color: $green; }
   }
 
   p{
@@ -133,6 +138,10 @@
 
   ul{
     margin-bottom: 1em;
+
+    li{
+      font-size: 0.8rem;
+    }
   }
 
   .short-desc{
@@ -167,6 +176,18 @@
     p,
     ul{
       @include grid-column(12);
+    }
+
+    table{
+      border-left: none;
+      border-right: none;
+    }
+
+    .tabs-content {
+      margin-bottom: 0;
+      .content{
+        padding-bottom: 0;
+      }
     }
 
     dl.tabs{
@@ -304,4 +325,115 @@ ul.contact-block{
       font-size: 2em;
     }
   }
+}
+
+// REASONS //
+.reasons{
+  height: 100%;
+
+  .reason-container{
+    height: 50%;
+    overflow-y: hidden;
+    transform: translateY(0);
+    color: #fff;
+
+    &:nth-child(1){ background-color: $purple; }
+    &:nth-child(2){ background-color: $orange; }
+    &:nth-child(3){ background-color: $pink; }
+    &:nth-child(4){ background-color: $blue; }
+
+    &.show-reason .reason{
+      transform: translateY(-100%);
+    }
+  }
+
+  .reason{
+    transition: all .5s $easeOutExpo;
+    height: 100%;
+
+    font-weight: 500;
+
+    > div{
+      height: 100%;
+      padding: 1em 0;
+
+      &.first{
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+// PRELOADER //
+
+#fountainG{
+position:relative;
+width:180px;
+height:22px}
+
+.fountainG{
+position:absolute;
+top:0;
+background-color:#AAAAAA;
+width:22px;
+height:22px;
+animation-name:bounce_fountainG;
+animation-duration:1.3s;
+animation-iteration-count:infinite;
+animation-direction:linear;
+transform:scale(.3);
+border-radius:15px;
+}
+
+#fountainG_1{
+left:0;
+animation-delay:0.52s;
+}
+
+#fountainG_2{
+left:23px;
+animation-delay:0.65s;
+}
+
+#fountainG_3{
+left:45px;
+animation-delay:0.78s;
+}
+
+#fountainG_4{
+left:68px;
+animation-delay:0.91s;
+}
+
+#fountainG_5{
+left:90px;
+animation-delay:1.04s;
+}
+
+#fountainG_6{
+left:113px;
+animation-delay:1.17s;
+}
+
+#fountainG_7{
+left:135px;
+animation-delay:1.3s;
+}
+
+#fountainG_8{
+left:158px;
+animation-delay:1.43s;
+}
+
+@keyframes bounce_fountainG{
+0%{
+transform:scale(1);
+background-color:#AAAAAA;
+}
+
+100%{
+transform:scale(.3);
+background-color:#FFFFFF;
+}
+
 }
