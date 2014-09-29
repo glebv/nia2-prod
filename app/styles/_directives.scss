@@ -80,17 +80,28 @@
   background-color: #fff;
   border: 1px solid #ddd;
   margin: 0.25em;
+
+  box-shadow: 0 3px 2px #aaa;
+
   header{
     border-bottom: 1px solid #ddd;
+
+    h2{
+      margin: .7em 0;
+    }
   }
 
   p{
     color: #999;
   }
 
+  .short-desc{
+    margin-top: 1em;
+  }
+
   .details p,
   .details ul{
-    // @grid-column(12);
+    @include grid-column(12);
   }
 
   h4{
@@ -189,6 +200,17 @@ ul.contact-block{
           font: rem-calc(24px) ProximaNova;
         }
       }
+    }
+
+    &.contact-footer{
+      width: 100%;
+      text-align: center;
+      margin-top: -3.5em;
+      position: relative;
+      z-index: 7;
+
+      color: #aaa;
+      font-size: 2em;
     }
   }
 }

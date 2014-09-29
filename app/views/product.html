@@ -12,7 +12,7 @@
 					and {{ hospitals('notcovered').length - 3 }} others services.
 				</p> -->
 
-				<h4 ng-class="{ 'priced' : priced }">{{ weeklyPrice() }}/week <span ng-click="priceDetail()">?</span></h4>
+				<h4 ng-class="{ 'priced' : priced }"><span class="price">{{ weeklyPrice() }}</span>/week <span ng-click="priceDetail()">?</span></h4>
 				<p>
 					<a ng-hide="priced" ng-click="getUserDetails()" class="button">Quote me</a>
 					<a ng-show="priced" ng-click="joinNow()" class="button">Join</a>

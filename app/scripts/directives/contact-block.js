@@ -12,10 +12,12 @@ angular.module('health3App')
       templateUrl: 'views/contact-block.html',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
-        scope.formButtonText = 'Call me back please!';
-        scope.processing = false;
 
-        console.log('y u no here');
+        scope.contact = {
+          formButtonText: 'Call me back please!',
+          processing: false,
+          phone: ''
+        }
 
         scope.showForm = function(){
         	scope.formVisible = true;

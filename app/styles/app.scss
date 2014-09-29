@@ -3,7 +3,9 @@
 
 // Include important shit //
 @import 'config';
-@import 'settings';
+@import 'foundation/settings';
+@import 'normalize';
+@import 'foundation'; 
 @import 'directives';
 
 
@@ -84,6 +86,7 @@ section.testimonials{
       padding: 0 1em;
       font-weight: 100;
       font-style: italic;
+      font-size: 1.4em;
     }
 
     .cite{
@@ -299,9 +302,45 @@ section.contact{
         }
       }
     }
+  }
+
+  .empty{
+    border: 1px solid #eee;
+
+    > div{
+      padding: 1em;
+      h2{}
+    }
   } 
 }
 
+
+// JOIN PAGE STYLES //
+.join-form{
+
+  .first-page{
+
+    label{
+      visibility: hidden;
+      position: absolute;
+    }
+
+    > div > p{
+      position: relative;
+    }
+  }
+
+  .ng-invalid + .indicator{ color: $pink }
+  .ng-valid   + .indicator{ color: $green }
+
+  .indicator{
+    position: absolute;
+    z-index: 9;
+    right: 0.3em;
+    top: -0.45em;
+    font-size: 3em;
+  }
+}
 
 
 // CRAZY FUCKING ANIMATIONS //

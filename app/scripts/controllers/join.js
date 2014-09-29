@@ -47,10 +47,9 @@ angular.module('health3App')
         .error(function() {
           
           var modalInstance = $modal.open({
-                                    templateUrl: 'views/join-confirm.html',
-                                    controller: 'JoinConfirmCtrl',
-                                    backdrop: 'static'
-                              });
+            templateUrl: 'views/join-confirm.html',
+            controller: 'JoinConfirmCtrl'
+          });
 
           modalInstance.result.then(function(data) {
             $scope.u.alternateText = data.alternateText;
@@ -107,27 +106,31 @@ angular.module('health3App')
   .controller('JoinLicenseCtrl', function ($scope){
     $scope.page = {
       title: 'Snap a photo of your drivers license',
-      desc: 'We use this to easily grab your date of birth and address.',
-      next: 'join.medicare'
+      desc : 'We use this to easily grab your date of birth and address.',
+      next : 'join.medicare',
+      type : 'license'
     };
   })
 
   .controller('JoinMedicareCtrl', function ($scope){
     $scope.page = {
       title: 'Snap a photo of your medicare card',
-      desc: 'We use this to grab people who\'ll be on your policy.',
-      next: 'join.current'
+      desc : 'We use this to grab people who\'ll be on your policy.',
+      next : 'join.current',
+      type : 'medicare'
     };
   })
 
   .controller('JoinCurrentInsurerCtrl', function ($scope){
     $scope.page = {
       title: 'Snap a photo of your current insurance card',
-      desc: '<strong>If you have one.</strong> We use this to switch you over easily.'
+      desc : '<strong>If you have one.</strong> We use this to switch you over easily.',
+      next : 'join.confirm',
+      type : 'current'
     };
   })
 
-  .controller('JoinConfirmCtrl', function ($scope, $state, $modalInstance) {
+  .controller('JoinLicense', function ($scope, $state, $modalInstance) {
 
       $scope.c = {};
       $scope.c.alternateText = '';

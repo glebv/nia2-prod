@@ -31,8 +31,6 @@ angular.module('health3App')
     // I AM TO CHECK IF USER HAS BEEN PRICED ALREADY... I DONT WORK YET. //
     $rootScope.$on('$stateChangeStart', function(evt, to){
 
-      $document.scrollTo(0);
-
     	if(to.name === 'products.view' && $rootScope.personParams.priced){
     		$state.go('products.priced');
     	}
@@ -43,7 +41,9 @@ angular.module('health3App')
     $rootScope.previousState = 'home';
     $rootScope.$on('$stateChangeSuccess', function(ev, to, toParams, from){
 
-      if(from.name == '' && (to.name === 'join.license' || to.name === 'join.complete' || to.name === 'join.done')) {
+      $document.scrollTo(0);
+
+      if(from.name === '' && (to.name === 'join.license' || to.name === 'join.medicare' || to.name === 'join.current' || to.name === 'join.complete' || to.name === 'join.done')) {
         $state.go('join.start');
       }
 

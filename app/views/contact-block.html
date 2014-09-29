@@ -6,9 +6,12 @@
 	<li class="form" ng-class="{ 'form-visible' : formVisible }" ng-init="formVisible = false">
 		<form name="call-back" class="small-12 columns" ng-submit="savePhoneNumber()" novalidate>
 			<p>If you want, we can give you a call back before the end of the day. Just leave your phone number here!</p>
-			<p><input type="number" name="phone-number" required></p>
-			<a class="show-form-button" ng-click="showForm()" ng-hide="formVisible">&nbsp;</a>
-			<input type="submit" ng-value="formButtonText">
+			<p><input type="tel" name="phone-number" ng-model="contact.phone" required></p>
+			<a class="show-form-button" ng-click="showForm()" ng-hide="contact.formVisible">&nbsp;</a>
+			<input type="submit" ng-value="contact.formButtonText">
 		</form>
+	</li>
+	<li class="contact-footer">
+		<logo></logo>
 	</li>
 </ul>
