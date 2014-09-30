@@ -13,69 +13,8 @@ angular.module('health3App')
   .controller('JoinCtrl', function ($scope, $rootScope, $upload, $modal, $state) {
 
     $scope.u = {};
-    $scope.u.images = [];
     $scope.control = {};
-    $scope.fileUpload = {};
-    $scope.fileUpload.isValid = true;
     $scope.control.submitted = false;
-    $scope.product = $rootScope.product;
-    var counter = 0;
-
-    $scope.onFileSelect = function($files){
-    	_.each($files, function(file){
-
-        //check for image file type
-        var typeValid = file.type.match(/(?:jpe?g|png)/);
-        $scope.fileUpload.isValid = true;
-        
-        if(typeValid === null) {
-          $scope.fileUpload.isValid = false;
-          return false;
-        }
-
-    		$scope.upload = $upload.upload({
-    			url: '/upload-script',
-    			file: file
-    			// data: { myObj: $scope.my }
-    		})
-    		.progress(function(evt){
-    			console.log(parseInt(evt.loaded / evt.total));
-    		})
-    		.success(function(){
-    			// data, status, headers, config = file uploaded args
-    		})
-        .error(function() {
-          
-          var modalInstance = $modal.open({
-            templateUrl: 'views/join-confirm.html',
-            controller: 'JoinConfirmCtrl'
-          });
-
-          modalInstance.result.then(function(data) {
-            $scope.u.alternateText = data.alternateText;
-            
-            //if no alternate text has been set, set the image
-            if(!$scope.u.alternateText) {
-              var reader = new FileReader();
-              reader.onload = function(e) {
-                $scope.u.images.push(e.target.result);
-              };
-              reader.readAsDataURL(file);
-            }
-
-            counter++;
-            if(counter == 2) {
-              $state.go('join.complete');
-            }
-
-          }, function() {
-            console.log('Some weird thing happened');
-          });
-
-        });
-    	});
-
-    };
 
     $scope.process = function(isValid, nextFlag)
     {
@@ -85,6 +24,8 @@ angular.module('health3App')
       if(!isValid) {
         return false;
       }
+
+      $rootScope.signupdata.u = $scope.u;
 
       if(nextFlag === undefined) {
         $state.go('join.license');
@@ -103,47 +44,190 @@ angular.module('health3App')
 
   })
 
-  .controller('JoinLicenseCtrl', function ($scope){
+  .controller('JoinLicenseCtrl', function ($scope, $rootScope, $upload, $modal, $state){
+    
+    $scope.license = {};
+    $scope.fileUpload = {};
+    $scope.fileUpload.isValid = true;
+    
     $scope.page = {
       title: 'Snap a photo of your drivers license',
       desc : 'We use this to easily grab your date of birth and address.',
       next : 'join.medicare',
       type : 'license'
     };
+
+    //allow to upload a file and enter correct address
+    $scope.onFileSelect = function($files) {
+      _.each($files, function(file){
+
+        //check for image file type
+        var typeValid = file.type.match(/(?:jpe?g|png)/);
+        $scope.fileUpload.isValid = true;
+        
+        if(typeValid === null) {
+          $scope.fileUpload.isValid = false;
+          return false;
+        }
+
+        $scope.upload = $upload.upload({
+          url: '/upload-script',
+          file: file
+          // data: { myObj: $scope.my }
+        })
+        .progress(function(evt){
+          console.log(parseInt(evt.loaded / evt.total));
+        })
+        .success(function(){
+          // data, status, headers, config = file uploaded args
+        })
+        .error(function() {
+          $scope.license.image = file.name;
+          //show the dialog content and get correct address
+          var modalInstance = $modal.open({
+            templateUrl: 'views/join-confirm-license.html',
+            controller: 'JoinLicenseModalCtrl'            
+          });
+
+          modalInstance.result.then(function(data) {
+            $scope.license.isCorrectAddress = !data || false;
+            $scope.license.correctAddress = data;
+            $rootScope.signupdata.license = $scope.license;
+            console.log($rootScope.signupdata);
+          });
+
+        });        
+
+      });
+    }
+
   })
 
   .controller('JoinMedicareCtrl', function ($scope){
+
+    $scope.fileUpload = {};
+    $scope.fileUpload.isValid = true;
+
     $scope.page = {
       title: 'Snap a photo of your medicare card',
       desc : 'We use this to grab people who\'ll be on your policy.',
       next : 'join.current',
       type : 'medicare'
     };
+
+    //allow to upload a file and add additional people
+    $scope.onFileSelect = function($files) {
+      _.each($files, function(file){
+
+        //check for image file type
+        var typeValid = file.type.match(/(?:jpe?g|png)/);
+        $scope.fileUpload.isValid = true;
+        
+        if(typeValid === null) {
+          $scope.fileUpload.isValid = false;
+          return false;
+        }
+
+        $scope.upload = $upload.upload({
+          url: '/upload-script',
+          file: file
+          // data: { myObj: $scope.my }
+        })
+        .progress(function(evt){
+          console.log(parseInt(evt.loaded / evt.total));
+        })
+        .success(function(){
+          // data, status, headers, config = file uploaded args
+        })
+        .error(function() {
+          //show the dialog content and get correct address
+          var modalInstance = $modal.open({
+            templateUrl: 'views/join-confirm-medicare.html',
+            controller: 'JoinMedicareModalCtrl'            
+          });
+
+          modalInstance.result.then(function(data) {
+            
+          });
+
+        });        
+
+      });
+    }
   })
 
   .controller('JoinCurrentInsurerCtrl', function ($scope){
+
+    $scope.fileUpload = {};
+    $scope.fileUpload.isValid = true;
+
     $scope.page = {
       title: 'Snap a photo of your current insurance card',
       desc : '<strong>If you have one.</strong> We use this to switch you over easily.',
       next : 'join.confirm',
       type : 'current'
     };
+
+    //allow to upload a file and prompt for everyone on policy
+    $scope.onFileSelect = function($files) {
+      _.each($files, function(file){
+
+        //check for image file type
+        var typeValid = file.type.match(/(?:jpe?g|png)/);
+        $scope.fileUpload.isValid = true;
+        
+        if(typeValid === null) {
+          $scope.fileUpload.isValid = false;
+          return false;
+        }
+
+        $scope.upload = $upload.upload({
+          url: '/upload-script',
+          file: file
+          // data: { myObj: $scope.my }
+        })
+        .progress(function(evt){
+          console.log(parseInt(evt.loaded / evt.total));
+        })
+        .success(function(){
+          // data, status, headers, config = file uploaded args
+        })
+        .error(function() {
+          //show the dialog content and get correct address
+          var modalInstance = $modal.open({
+            templateUrl: 'views/join-confirm-Insurer.html',
+            controller: 'JoinInsurerModalCtrl'            
+          });
+
+          modalInstance.result.then(function(data) {
+            console.log(data);
+          });
+
+        });        
+
+      });
+    }    
   })
 
-  .controller('JoinLicense', function ($scope, $state, $modalInstance) {
+  .controller('JoinLicenseModalCtrl', function ($scope, $state, $modalInstance) {
 
-      $scope.c = {};
-      $scope.c.alternateText = '';
-      $scope.isAlternateText = false;
+    $scope.l = {};
+    $scope.l.correctAddress = '';
+    $scope.isAlternateText = false;
 
-      $scope.closeModal = function() {
-        $modalInstance.close($scope.c);
-        $state.go('join.medicare');
+    $scope.closeModal = function(l) {
+
+      if(l !== undefined) {
+        $scope.l.correctAddress = l.correctAddress;
       }
 
-      $scope.showAlternateText = function() {
-        $scope.isAlternateText = !$scope.isAlternateText;
-      }
+      $modalInstance.close($scope.l.correctAddress);
+      $state.go('join.medicare');
+    }
+
+    $scope.showAlternateText = function() {
+      $scope.isAlternateText = !$scope.isAlternateText;
+    }    
 
   });
 

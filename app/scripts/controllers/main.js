@@ -12,6 +12,9 @@
 angular.module('health3App')
   .controller('MainCtrl', function ($scope, $rootScope, $document, $state, $window, Products) {
 
+    //store signupdata
+    $rootScope.signupdata = {};
+    
   	// I STORE PRICE SELECTIONS //
     $rootScope.personParams = {
     	priced: false,
