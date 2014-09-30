@@ -215,21 +215,21 @@ section.contact{
   section{
     color: #fff;
     h2{ color: #fff; }
-    &:nth-child(1){ 
+    &:nth-of-type(1){ 
       background: url(../images/bike-bg.jpg) no-repeat center center; 
       @media #{$large-up}{ background-size: cover; }
     }
-    &:nth-child(2){ 
+    &:nth-of-type(2){ 
       background-color: $purple; 
 
       .button{ background-color: darken($purple, 20); }
     }
-    &:nth-child(3){ 
+    &:nth-of-type(3){ 
       background-color: $orange; 
 
       .button{ background-color: darken($orange, 20); }
     }
-    &:nth-child(4){ 
+    &:nth-of-type(4){ 
       background-color: $pink; 
 
       .button{ background-color: darken($pink, 20); }
@@ -248,14 +248,14 @@ section.contact{
     font-size: 1.25em;
     font-weight: 200;
 
-    &:nth-child(1){ background-color: $purple; }
-    &:nth-child(2){ background-color: $orange; }
-    &:nth-child(3){ background-color: $pink; }
-    &:nth-child(4){ background-color: $blue; }
-    &:nth-child(5){ background-color: $green; }
-    &:nth-child(6){ background-color: $product-yellow; }
-    &:nth-child(7){ background-color: $purple; }
-    &:nth-child(8){ background-color: $orange; }
+    &:nth-of-type(1){ background-color: $purple; }
+    &:nth-of-type(2){ background-color: $orange; }
+    &:nth-of-type(3){ background-color: $pink; }
+    &:nth-of-type(4){ background-color: $blue; }
+    &:nth-of-type(5){ background-color: $green; }
+    &:nth-of-type(6){ background-color: $product-yellow; }
+    &:nth-of-type(7){ background-color: $purple; }
+    &:nth-of-type(8){ background-color: $orange; }
 
     input{opacity: 0;}
   }

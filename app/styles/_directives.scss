@@ -219,7 +219,7 @@
         background-color: transparent;
       }
 
-      tr:nth-child(even),
+      tr:nth-of-type(even),
       th{
         background-color: rgba(255,255,255,0.2);
       }
@@ -371,19 +371,19 @@ ul.contact-block{
 .reasons{
   height: 100%;
 
-    reason:nth-child(1){
+    reason:nth-of-type(1){
       > div{ background-color: $purple; }
       .button{ background-color: darken($purple, 30); }
     } 
-    reason:nth-child(2){
+    reason:nth-of-type(2){
       > div{ background-color: $orange; }
       .button{ background-color: darken($orange, 30); }
     } 
-    reason:nth-child(3){
+    reason:nth-of-type(3){
       > div{ background-color: $pink; }
       .button{ background-color: darken($pink, 30); }
     } 
-    reason:nth-child(4){
+    reason:nth-of-type(4){
       > div{ background-color: $blue; }
       .button{ background-color: darken($blue, 30); }
     } 
