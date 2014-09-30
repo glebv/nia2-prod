@@ -26,7 +26,7 @@ angular.module('health3App')
 
         scope.nextPanel = function(){
         	scope.state.num++;
-          if (scope.state.num === 4){
+          if (scope.state.num > scope.content.length){
             scope.state.num = 1;
           }
         };

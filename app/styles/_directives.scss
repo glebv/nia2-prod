@@ -329,7 +329,7 @@ ul.contact-block{
           }
         }
 
-        [type="number"]{
+        [type="tel"]{
           background: lighten($green, 20);
           box-shadow: none;
           border: none;
@@ -390,18 +390,21 @@ ul.contact-block{
 
   .reason-container{
     height: 50%;
-    overflow-y: hidden;
+    width: 50%;
+    float: left;
+    overflow-x: hidden;
     transform: translateY(0);
     color: #fff;
 
-    &.show-1 .reason{ transform: translateY(0); }
-    &.show-2 .reason{ transform: translateY(-100%); }
-    &.show-3 .reason{ transform: translateY(-200%); }
+    &.show-1 .reason{ transform: translateX(0); }
+    &.show-2 .reason{ transform: translateX(-33%); }
+    &.show-3 .reason{ transform: translateX(-66%); }
   }
 
   .reason{
     transition: all .5s $easeOutExpo;
     height: 100%;
+    width: 300%;
 
     font-weight: 500;
 
@@ -411,7 +414,9 @@ ul.contact-block{
 
     > div{
       height: 100%;
-      padding: 1em 0;
+      width: 33%;
+      padding: 1em;
+      float: left;
     }
   }
 }

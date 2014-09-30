@@ -15,6 +15,10 @@
 
 // HERO SECTION ON HOMEPAGE //
 
+.its-a-boy{
+  height: 55px;
+}
+
 section.hero{
   background: url(../images/hero-beach.png) no-repeat center center;
   background-size: cover;
@@ -77,6 +81,7 @@ section.hero{
 
 section.testimonials{
   background: url(../images/bike-bg.jpg) no-repeat center center;
+  @media #{$large-up}{ background-size: cover; }
   color: #fff;
 
   .item{
@@ -212,6 +217,7 @@ section.contact{
     h2{ color: #fff; }
     &:nth-child(1){ 
       background: url(../images/bike-bg.jpg) no-repeat center center; 
+      @media #{$large-up}{ background-size: cover; }
     }
     &:nth-child(2){ 
       background-color: $purple; 
