@@ -25,13 +25,10 @@ angular.module('health3App')
         })
 
         scope.nextPanel = function(){
-        	var newNumber = scope.state.num + 1;
-        	console.log(newNumber);
-        	if(newNumber = scope.content.length){
-        		scope.state.num = 1;
-        	} else {
-        		scope.state.num = newNumber;
-        	}
+        	scope.state.num++;
+          if (scope.state.num === 4){
+            scope.state.num = 1;
+          }
         };
       }
     };

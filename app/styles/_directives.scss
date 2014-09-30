@@ -78,49 +78,48 @@
 // PRODUCT DIRECTIVE //
 .product-card{
   background-color: #fff;
-  border: 1px solid #ddd;
   margin: 0.25em;
 
   box-shadow: 0 3px 2px #aaa;
 
+  h2{
+    color: #fff;
+    padding: 0.5em 0 0;
+  }
+
+  .dollar-amount{
+    color: #202020;
+  }
+
+  h4{
+    em{
+
+    }
+  }
+
   &.simpleessentials60{ 
-    h2,
-    .dollar-amount{
-      color: $product-orange;
+
+    background-color: $product-orange;
+
+    border: 1px solid darken($product-orange, 20);
+
+    // header,
+    // .short-desc{
+    //   background-color: $product-orange;
+    // }
+
+    h4{
+      color: lighten($product-orange, 30);
+      em{ color: lighten($product-orange, 30); }
+
+      .dollar-amount{ color: darken($product-orange, 30) }
+    }
+
+    .button{
+      background-color: darken($product-orange, 30) 
     }
   }
 
-  &.basic65{ 
-    h2,
-    .dollar-amount{
-      color: $product-yellow;
-    }
-  }
-
-  &.heartcaremiddle65{ 
-    h2,
-    .dollar-amount{
-      color: $product-blue;
-    }
-  }
-
-  &.vitality65{ 
-    h2,
-    .dollar-amount{
-      color: $product-lilac;
-    }
-  }
-
-  &.high65{ h2, .dollar-amount{ color: $product-purple; } }
-
-  header{
-    border-bottom: 1px solid #ddd;
-
-    h2{
-      margin: .7em 0;
-      font-weight: 600;
-    }
-  }
 
   p.panel{
     border-left: none;
@@ -133,7 +132,7 @@
   }
 
   p{
-    color: #999;
+    color: #fff;
   }
 
   ul{
@@ -145,11 +144,10 @@
   }
 
   .short-desc{
-    margin-top: 1em;
+    padding-top: 1em;
     h4{
       line-height: 1;
       float: left;
-      color: #aaa;
 
       &.priced{
         margin-top: 0;
@@ -157,7 +155,6 @@
 
       em{
         font-size: 0.8rem;
-        color: #aaa;
         font-style: none;
       }
 
@@ -331,20 +328,32 @@ ul.contact-block{
 .reasons{
   height: 100%;
 
+    reason:nth-child(1){
+      > div{ background-color: $purple; }
+      .button{ background-color: darken($purple, 30); }
+    } 
+    reason:nth-child(2){
+      > div{ background-color: $orange; }
+      .button{ background-color: darken($orange, 30); }
+    } 
+    reason:nth-child(3){
+      > div{ background-color: $pink; }
+      .button{ background-color: darken($pink, 30); }
+    } 
+    reason:nth-child(4){
+      > div{ background-color: $blue; }
+      .button{ background-color: darken($blue, 30); }
+    } 
+
   .reason-container{
     height: 50%;
     overflow-y: hidden;
     transform: translateY(0);
     color: #fff;
 
-    &:nth-child(1){ background-color: $purple; }
-    &:nth-child(2){ background-color: $orange; }
-    &:nth-child(3){ background-color: $pink; }
-    &:nth-child(4){ background-color: $blue; }
-
-    &.show-reason .reason{
-      transform: translateY(-100%);
-    }
+    &.show-1 .reason{ transform: translateY(0); }
+    &.show-2 .reason{ transform: translateY(-100%); }
+    &.show-3 .reason{ transform: translateY(-200%); }
   }
 
   .reason{
@@ -353,13 +362,13 @@ ul.contact-block{
 
     font-weight: 500;
 
+    p{
+      font-size: 1.2em;
+    }
+
     > div{
       height: 100%;
       padding: 1em 0;
-
-      &.first{
-        font-size: 1.2em;
-      }
     }
   }
 }
