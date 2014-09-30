@@ -206,12 +206,28 @@ section.contact{
 
 // WHY US PAGE //
 
-.happy-customers{
-  background: url(../images/bike-bg.jpg) no-repeat center center;
-  color: #fff;
-
-  h2{
+[state="whyus"]{
+  section{
     color: #fff;
+    h2{ color: #fff; }
+    &:nth-child(1){ 
+      background: url(../images/bike-bg.jpg) no-repeat center center; 
+    }
+    &:nth-child(2){ 
+      background-color: $purple; 
+
+      .button{ background-color: darken($purple, 20); }
+    }
+    &:nth-child(3){ 
+      background-color: $orange; 
+
+      .button{ background-color: darken($orange, 20); }
+    }
+    &:nth-child(4){ 
+      background-color: $pink; 
+
+      .button{ background-color: darken($pink, 20); }
+    }
   }
 }
 
@@ -241,6 +257,8 @@ section.contact{
 
 // PRODUCTS VIEW //
 .products-page{
+
+  margin-top: 2em;
   
   .loading{
     width: 180px;
@@ -259,26 +277,27 @@ section.contact{
       position: fixed;
       top: 0.25rem;
       left: 0;
-      background: #fff;
+      background: rgba(255,255,255,0.9);
       height: 1.75em;
 
       > span{
         font-size: .5em;
-        color: #ddd;
+        color: rgba(0,0,0,0.3);
 
         &.active{
-          color: #222;
+          color: rgba(0,0,0,0.8);
         }
       }
     }
   }
 
   .empty{
-    border: 1px solid #eee;
-
+    color: #fff;
+    background-color: #404040;
+    height: 100%;
     > div{
       padding: 1em;
-      h2{}
+      h2{ color: #fff; }
     }
   } 
 }

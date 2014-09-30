@@ -1,3 +1,6 @@
+<ephemeral ng-hide="personParams.priced" message="Say hello to our most popular products" time="5s" color="blue"></ephemeral>
+<ephemeral ng-show="personParams.priced" message="These prices are now an accurate quote, based on the info you gave us." time="5s" color="pink"></ephemeral>
+
 <div class="carousel-container">
 	<p class="loading" ng-hide="productsLoaded"><preloader></preloader></p>
 	 <!-- rn-carousel-index="slideIndex" -->

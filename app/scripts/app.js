@@ -20,9 +20,9 @@ angular
     'mm.foundation',
     'angular-carousel'
   ])
-  // .run(function ($rootScope, $state){
-  //   $rootScope.$state = $state;
-  // })
+  .run(function ($rootScope, $state){
+    $rootScope.$state = $state;
+  })
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider

@@ -97,8 +97,10 @@ $product-grey   : #404040;
 
 @include keyframe(hoverAnimation) {
 	0%, 100% { transform: translateY(0) } 
-	50%			 { transform: translateY(22px) }
+	50%		 { transform: translateY(22px) }
 }
 
-
-
+@include keyframe(ephemeralProgressBar) {
+	0%   { width: 0% }
+	100% { width: 100% }
+}

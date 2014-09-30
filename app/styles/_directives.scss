@@ -77,10 +77,9 @@
 
 // PRODUCT DIRECTIVE //
 .product-card{
-  background-color: #fff;
+  background-color: #404040;
   margin: 0.25em;
-
-  box-shadow: 0 3px 2px #aaa;
+  border-radius: 4px;
 
   h2{
     color: #fff;
@@ -98,26 +97,63 @@
   }
 
   &.simpleessentials60{ 
-
     background-color: $product-orange;
-
-    border: 1px solid darken($product-orange, 20);
-
-    // header,
-    // .short-desc{
-    //   background-color: $product-orange;
-    // }
-
-    h4{
+    color: darken($product-orange, 30);
+    .button{ background-color: darken($product-orange, 30) }
+    h4, em {
       color: lighten($product-orange, 30);
-      em{ color: lighten($product-orange, 30); }
+      .dollar-amount{ color: darken($product-orange, 30) } }
+    dd a{ color: darken($product-orange, 30); }
+    .tabs-content, dd.active a{background-color: lighten($product-orange, 10)!important;}
+    td, th { color: darken($product-orange, 30) }
+  }
 
-      .dollar-amount{ color: darken($product-orange, 30) }
-    }
+  &.basic65{ 
+    background-color: $product-yellow;
+    color: darken($product-yellow, 30);
+    .button{ background-color: darken($product-yellow, 30) }
+    h4, em {
+      color: lighten($product-yellow, 30);
+      .dollar-amount{ color: darken($product-yellow, 30) } }
+    dd a{ color: darken($product-yellow, 30); }
+    .tabs-content, dd.active a{background-color: lighten($product-yellow, 10)!important;}
+    td, th { color: darken($product-yellow, 30) }
+  }
 
-    .button{
-      background-color: darken($product-orange, 30) 
-    }
+  &.heartcaremiddle65{ 
+    background-color: $product-blue;
+    color: darken($product-blue, 30);
+    .button{ background-color: darken($product-blue, 30) }
+    h4, em {
+      color: lighten($product-blue, 30);
+      .dollar-amount{ color: darken($product-blue, 30) } }
+    dd a{ color: darken($product-blue, 30); }
+    .tabs-content, dd.active a{background-color: lighten($product-blue, 10)!important;}
+    td, th { color: darken($product-blue, 30) }
+  }
+
+  &.vitality65{ 
+    background-color: $product-lilac;
+    color: darken($product-lilac, 30);
+    .button{ background-color: darken($product-lilac, 30) }
+    h4, em {
+      color: lighten($product-lilac, 30);
+      .dollar-amount{ color: darken($product-lilac, 30) } }
+    dd a{ color: darken($product-lilac, 30); }
+    .tabs-content, dd.active a{background-color: lighten($product-lilac, 10)!important;}
+    td, th { color: darken($product-lilac, 30) }
+  }
+
+  &.high65{ 
+    background-color: $product-purple;
+    color: darken($product-purple, 30);
+    .button{ background-color: darken($product-purple, 30) }
+    h4, em {
+      color: lighten($product-purple, 30);
+      .dollar-amount{ color: darken($product-purple, 30) } }
+    dd a{ color: darken($product-purple, 30); }
+    .tabs-content, dd.active a{background-color: lighten($product-purple, 10)!important;}
+    td, th { color: darken($product-purple, 30) }
   }
 
 
@@ -176,12 +212,22 @@
     }
 
     table{
-      border-left: none;
-      border-right: none;
+      border: none;
+      background-color: transparent;
+
+      thead{
+        background-color: transparent;
+      }
+
+      tr:nth-child(even),
+      th{
+        background-color: rgba(255,255,255,0.2);
+      }
     }
 
     .tabs-content {
       margin-bottom: 0;
+      border-radius: 4px;
       .content{
         padding-bottom: 0;
       }
@@ -191,23 +237,18 @@
       dd{
         width: 50%;
         text-align: center;
-        border-bottom: 1px solid #ddd;
-        border-right: 1px solid #ddd;
-          border-top: 1px solid #ddd;
         
         a{
           font-family: ProximaNova;
           text-transform: uppercase;
           font-weight: 400;
+          background-color: transparent;
+          border-radius: 0 4px 0 0;
         }
         
 
-        &:last-child{
-          border-right: none;
-        }
-
-        &.active{
-          border-bottom: none;
+        &:last-child a{
+          border-radius: 4px 0 0 0;
         }
       }
     }
@@ -244,8 +285,8 @@ ul.contact-block{
 
       padding: 1.5em 0;
 
-      &.call      { background-color: $purple; }
-      &.email     { background-color: $orange; }
+      &.call      { background-color: $purple; border-radius: 4px 0 0 0; }
+      &.email     { background-color: $orange; border-radius: 0 4px 0 0; }
       &.livechat  { background-color: $pink; }
       &.customers { background-color: $blue; }
     }
@@ -268,6 +309,7 @@ ul.contact-block{
         padding-top: 1em;
         padding-bottom: rem-calc(50px);
         position: relative;
+        border-radius: 0 0 4px 4px;
 
         color: #fff;
 
@@ -302,7 +344,8 @@ ul.contact-block{
 
           width: 100%;
           height: rem-calc(50px);
-
+  
+          border-radius: 0 0 4px 4px;
           border: none;
           background-color: darken($green, 10);
           color: #fff;
@@ -372,6 +415,48 @@ ul.contact-block{
     }
   }
 }
+
+// EPHEMERAL MESSAGE
+
+.ephemeral-message{
+  position: relative;
+  transition: all .3s $easeOutExpo;
+
+  p{ 
+    line-height: 1.2; 
+    border: 1px solid #eee;
+    padding: 0.75em 1em;
+    margin-bottom: 1em;}
+
+  span.ephemeral-progress-bar{
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background-color: #444;
+    @include animation(ephemeralProgressBar, 5s, 0s, 1);
+    animation-timing-function: linear;
+
+    &.purple { background-color: $purple; }
+    &.orange { background-color: $orange; }
+    &.pink   { background-color: $pink; }
+    &.blue   { background-color: $blue; }
+    &.yellow { background-color: $yellow; }
+    &.green  { background-color: $green; }
+  }
+
+  &.done{
+    opacity: 0;
+    overflow-y: hidden;
+
+    span.ephemeral-progress-bar{
+      width: 100%;
+    }
+  }
+}
+
 
 // PRELOADER //
 
