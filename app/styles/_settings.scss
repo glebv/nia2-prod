@@ -1091,18 +1091,18 @@ $input-include-glowing-effect: false;
 // $reveal-overlay-bg-old: $black;
 
 // We use these to control the style of the modal itself.
-// $reveal-modal-bg: $white;
+$reveal-modal-bg: rgba(255,255,255,0.95);
 // $reveal-position-top: rem-calc(100);
-// $reveal-default-width: 80%;
+$reveal-default-width: 60%;
 // $reveal-modal-padding: rem-calc(20);
-// $reveal-box-shadow: 0 0 10px rgba($black,.4);
+$reveal-box-shadow: none;
 
 // We use these to style the reveal close button
 // $reveal-close-font-size: rem-calc(40);
 // $reveal-close-top: rem-calc(8);
 // $reveal-close-side: rem-calc(11);
 // $reveal-close-color: $base;
-// $reveal-close-weight: $font-weight-bold;
+$reveal-close-weight: normal;
 
 // We use this to set the default radius used throughout the core.
 // $reveal-radius: $global-radius;
@@ -1110,7 +1110,7 @@ $input-include-glowing-effect: false;
 
 // We use these to control the modal border
 // $reveal-border-style: solid;
-// $reveal-border-width: 1px;
+$reveal-border-width: 0px;
 // $reveal-border-color: $steel;
 
 // $reveal-modal-class: "reveal-modal";

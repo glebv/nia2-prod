@@ -76,6 +76,24 @@
 }
 
 // PRODUCT DIRECTIVE //
+
+.product-popup{
+  h3 .excess{
+    display: inline-block;
+    font-size: .6em;
+    padding: .3em .6em;
+    background-color: #404040;
+    color: #fff;
+    border-radius: $global-radius;
+  }
+
+  &.simpleessentials60{
+    h3 { color: darken($product-orange, 20); }
+    h3 .excess{background-color: $product-orange }
+    .button { background-color: $product-orange }
+  }
+}
+
 .product-card{
   background-color: #404040;
   margin: 0.25em;
@@ -90,12 +108,6 @@
     color: #202020;
   }
 
-  h4{
-    em{
-
-    }
-  }
-
   &.simpleessentials60{ 
     background-color: $product-orange;
     color: darken($product-orange, 30);
@@ -105,7 +117,7 @@
       .dollar-amount{ color: darken($product-orange, 30) } }
     dd a{ color: darken($product-orange, 30); }
     .tabs-content, dd.active a{background-color: lighten($product-orange, 10)!important;}
-    td, th { color: darken($product-orange, 30) }
+    td, th { color: darken($product-orange, 30); }
   }
 
   &.basic65{ 
@@ -209,6 +221,16 @@
     p,
     ul{
       @include grid-column(12);
+    }
+
+    p{
+      padding-top: .8em;
+      padding-bottom: .8em;
+      font-size: .8em;
+
+      &.pink   { background-color: $pink; }
+      &.orange { background-color: $orange; }
+      &.green  { background-color: $green; }
     }
 
     table{

@@ -28,6 +28,7 @@ angular.module('health3App')
   .controller('PricePolicyCtrl', function($scope){
   	$scope.page = {
       title: 'What best describes you?',
+      desc: '',
       type: 'policy',
       next: 'get-price.state',
       options: $scope.options.policy
@@ -37,6 +38,7 @@ angular.module('health3App')
   .controller('PriceStateCtrl', function($scope){
   	$scope.page = {
       title: 'Where do you live?',
+      desc: '',
       type: 'state',
       next: 'get-price.age',
       options: $scope.options.state            
@@ -46,6 +48,7 @@ angular.module('health3App')
   .controller('PriceAgeCtrl', function($scope){
   	$scope.page = {
       title: 'How old are you?',
+      desc: '',
       type: 'age',
       next: 'get-price.income',
       options: $scope.options.age
@@ -57,6 +60,7 @@ angular.module('health3App')
 
     $scope.page = {
       title: 'How much do you earn?',
+      desc: 'We use this so we can give you the biggest possible rebate on your policy!',
       type: 'income',
       next: 'products.priced',
       options: $scope.options.income[marital]         
