@@ -1,18 +1,23 @@
 <div class="row">
 	<div class="small-12 columns">
 		<div ng-show="!isAlternateText">
-			<h2>Is the address on this license your current address?</h2>
+			<h2>Do you want to additional people?</h2>
 			<p>
-				<button class="button" ng-click="closeModal()">Yes</button>
-				<button class="button" ng-click="showAlternateText()">No</button>
+				<button type="button" class="button" ng-click="showAlternateText()">Yes</button>
+				<button type="button" class="button" ng-click="closeModal()">No</button>
 			</p>
 		</div>
 
 		<div ng-show="isAlternateText">
-			<h1>Please enter your current address</h1>
-			<p><input type="text" name="correctAddress" ng-model="l.correctAddress" value="" /></p>
+			<h1>Please add more people here</h1>
 			<p>
-				<button class="button" ng-click="closeModal(l)">Confirm</button>	
+				<a ng-click="addNew()">add more</a>
+			</p>	
+			<p ng-repeat="nameObj in people">
+				<input type="text" name="name" ng-model="nameObj.name" />
+			</p>
+			<p>
+				<button type="button" class="button" ng-click="closeModal()">Confirm</button>	
 			</p>	
 		</div>	
 	</div>

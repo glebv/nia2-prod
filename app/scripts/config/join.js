@@ -33,9 +33,9 @@ angular.module('health3App')
     controller: 'JoinCurrentInsurerCtrl'
   })
 
-  .state('join.complete', {
-    url: '/complete',
-    templateUrl: 'views/join-complete.html'
+  .state('join.confirm', {
+    url: '/confirm',
+    templateUrl: 'views/join-confirm.html'
   })
 
   .state('join.done', {

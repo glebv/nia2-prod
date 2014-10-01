@@ -46,7 +46,7 @@ angular.module('health3App')
 
       $document.scrollTo(0);
 
-      if(from.name === '' && (to.name === 'join.license' || to.name === 'join.medicare' || to.name === 'join.current' || to.name === 'join.complete' || to.name === 'join.done')) {
+      if(from.name === '' && (to.name === 'join.license' || to.name === 'join.medicare' || to.name === 'join.current' || to.name === 'join.confirm' || to.name === 'join.done')) {
         $state.go('join.start');
       }
 
