@@ -38,6 +38,13 @@ p{
   height: 100%;
 }
 
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="phone"]{
+  border-bottom-width: 1px;
+}
+
 section:nth-child(even){
   background-color: #f6f6f6;
 }

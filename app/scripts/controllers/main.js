@@ -30,11 +30,9 @@ angular.module('health3App')
 
     // I AM TO CHECK IF USER HAS BEEN PRICED ALREADY... I DONT WORK YET. //
     $rootScope.$on('$stateChangeStart', function(evt, to){
-
-      to = $state.get('products.priced');
-
     	if(to.name === 'products.view' && $rootScope.personParams.priced){
-    		$state.transitionTo('products.priced');
+        evt.preventDefault();
+    		$state.go('products.priced', $rootScope.personParams.selections);
     	}
 
     });
