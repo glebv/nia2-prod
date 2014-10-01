@@ -16,7 +16,7 @@ angular.module('health3App')
     $scope.control = {};
     $scope.control.submitted = false;
 
-    $scope.process = function(isValid, nextFlag)
+    $scope.processForm = function(isValid, nextFlag)
     {
       $scope.formInvalid = false;
       $scope.control.submitted = true;
@@ -25,21 +25,14 @@ angular.module('health3App')
         return false;
       }
 
-      $rootScope.signupdata.u = $scope.u;
-
       if(nextFlag === undefined) {
+        $rootScope.signupdata.u = $scope.u;
         $state.go('join.license');
+        return false;
       }
-      else {
-  
-        if(!$scope.u.name) {
-          $scope.formInvalid = true;
-          return false;
-        }
-        console.log($scope.u);
-        //save the form
-        $state.go('join.done');
-      }
+
+      //save the form goes here
+      $state.go('join.done');
     }
 
   })
@@ -47,6 +40,7 @@ angular.module('health3App')
   .controller('JoinLicenseCtrl', function ($scope, $rootScope, $upload, $modal, $state){
     
     $scope.license = {};
+    $scope.license.image = '';
     $scope.fileUpload = {};
     $scope.fileUpload.isValid = true;
     
@@ -82,7 +76,13 @@ angular.module('health3App')
           // data, status, headers, config = file uploaded args
         })
         .error(function() {
-          $scope.license.image = file.name;
+          //store image temporarily until api gets ready
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            $scope.license.image = e.target.result;
+          };
+          reader.readAsDataURL(file);
+
           //show the dialog content and get correct address
           var modalInstance = $modal.open({
             templateUrl: 'views/join-confirm-license.html',
@@ -93,7 +93,7 @@ angular.module('health3App')
             $scope.license.isCorrectAddress = !data || false;
             $scope.license.correctAddress = data;
             $rootScope.signupdata.license = $scope.license;
-            console.log($rootScope.signupdata);
+            $state.go($scope.page.next);
           });
 
         });        
@@ -103,8 +103,10 @@ angular.module('health3App')
 
   })
 
-  .controller('JoinMedicareCtrl', function ($scope){
+  .controller('JoinMedicareCtrl', function ($scope, $rootScope, $upload, $modal, $state){
 
+    $scope.medicare = {};
+    $scope.medicare.image = [];
     $scope.fileUpload = {};
     $scope.fileUpload.isValid = true;
 
@@ -140,6 +142,13 @@ angular.module('health3App')
           // data, status, headers, config = file uploaded args
         })
         .error(function() {
+          //store image temporarily until api gets ready
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            $scope.medicare.image = e.target.result;
+          };
+          reader.readAsDataURL(file);
+
           //show the dialog content and get correct address
           var modalInstance = $modal.open({
             templateUrl: 'views/join-confirm-medicare.html',
@@ -147,7 +156,10 @@ angular.module('health3App')
           });
 
           modalInstance.result.then(function(data) {
-            
+            $scope.medicare.additionalPeople = (data.length > 0) || false;
+            $scope.medicare.people = (data.length > 0)? data : '';
+            $rootScope.signupdata.medicare = $scope.medicare;
+            $state.go($scope.page.next);
           });
 
         });        
@@ -156,14 +168,17 @@ angular.module('health3App')
     }
   })
 
-  .controller('JoinCurrentInsurerCtrl', function ($scope){
+  .controller('JoinCurrentInsurerCtrl', function ($scope, $rootScope, $upload, $modal, $state, $sce){
 
+    $scope.current = {};
+    $scope.current.image = '';
+    $scope.current.hasCurrentInsurance = false;
     $scope.fileUpload = {};
     $scope.fileUpload.isValid = true;
 
     $scope.page = {
       title: 'Snap a photo of your current insurance card',
-      desc : '<strong>If you have one.</strong> We use this to switch you over easily.',
+      desc : $sce.trustAsHtml("<strong>If you have one.</strong> We use this to switch you over easily."),
       next : 'join.confirm',
       type : 'current'
     };
@@ -193,20 +208,37 @@ angular.module('health3App')
           // data, status, headers, config = file uploaded args
         })
         .error(function() {
+          //store image temporarily until api gets ready
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            $scope.current.image = e.target.result;
+          };
+          reader.readAsDataURL(file);
+
           //show the dialog content and get correct address
           var modalInstance = $modal.open({
-            templateUrl: 'views/join-confirm-Insurer.html',
+            templateUrl: 'views/join-confirm-insurer.html',
             controller: 'JoinInsurerModalCtrl'            
           });
 
           modalInstance.result.then(function(data) {
-            console.log(data);
+            $scope.current.everyoneOnPolicy = data || false;
+            $rootScope.signupdata.current = $scope.current;
+            $state.go($scope.page.next);
           });
 
         });        
 
       });
-    }    
+    };
+
+    $scope.setInsuranceStatus = function() {
+      $scope.current.everyoneOnPolicy = false;
+      $scope.current.hasCurrentInsurance = true;
+      $rootScope.signupdata.current = $scope.current;
+      $state.go($scope.page.next);
+    }
+
   })
 
   .controller('JoinLicenseModalCtrl', function ($scope, $state, $modalInstance) {
@@ -216,21 +248,41 @@ angular.module('health3App')
     $scope.isAlternateText = false;
 
     $scope.closeModal = function(l) {
-
       if(l !== undefined) {
         $scope.l.correctAddress = l.correctAddress;
       }
-
       $modalInstance.close($scope.l.correctAddress);
-      $state.go('join.medicare');
-    }
+    };
 
     $scope.showAlternateText = function() {
       $scope.isAlternateText = !$scope.isAlternateText;
-    }    
+    };    
+
+  })
+
+  .controller('JoinMedicareModalCtrl', function ($scope, $state, $modalInstance) {
+
+    $scope.people = [{ name: '' }];
+    $scope.isAlternateText = false;
+
+    $scope.addNew = function (){
+      $scope.people.push({ name: '' });
+    };
+
+    $scope.closeModal = function() {
+      $modalInstance.close(angular.copy($scope.people));
+    };
+
+    $scope.showAlternateText = function() {
+      $scope.isAlternateText = !$scope.isAlternateText;
+    };    
+
+  })
+
+  .controller('JoinInsurerModalCtrl', function ($scope, $state, $modalInstance) {
+
+    $scope.closeModal = function(flag) {
+      $modalInstance.close(flag);
+    };
 
   });
-
-  // .controller('JoinPreviousInsurerCtrl', function ($scope){
-
-  // });
