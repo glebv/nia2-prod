@@ -10,7 +10,7 @@
  * Controller of the health3App
  */
 angular.module('health3App')
-  .controller('MainCtrl', function ($scope, $rootScope, $document, $state, $window, Products) {
+  .controller('MainCtrl', function ($scope, $rootScope, $document, $state, $window, Products, Posts) {
 
     //store signupdata
     $rootScope.signupdata = {};
@@ -30,6 +30,11 @@ angular.module('health3App')
       $rootScope.products = data;
       $rootScope.productsLoaded = true;
     });
+
+    Posts.get()
+    .then(function(data){
+      console.log(data);
+    })
 
     // I AM TO CHECK IF USER HAS BEEN PRICED ALREADY... I DONT WORK YET. //
     $rootScope.$on('$stateChangeStart', function(evt, to){
