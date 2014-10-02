@@ -10,7 +10,15 @@
  * Controller of the health3App
  */
 angular.module('health3App')
-  .controller('MainCtrl', function ($scope, $rootScope, $document, $state, $window, Products) {
+  .controller('MainCtrl', function ($scope, $rootScope, $document, $state, $window, $http, Products) {
+
+    $scope.data;
+
+    window.d = $scope.data;
+
+    $http.get('http://nia.wp/wp-json/posts', function(data){
+      $scope.data = data;
+    });
 
     //store signupdata
     $rootScope.signupdata = {};
