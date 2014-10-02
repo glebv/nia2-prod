@@ -23,7 +23,8 @@ angular
   .run(function ($rootScope, $state){
     $rootScope.$state = $state;
   })
-  .config(function ($stateProvider) {
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
     $stateProvider
     .state('home', {
       url: '/',

@@ -31,10 +31,10 @@ angular.module('health3App')
       $rootScope.productsLoaded = true;
     });
 
-    Posts.get()
-    .then(function(data){
-      console.log(data);
-    })
+    // Posts.get()
+    // .then(function(data){
+    //   console.log(data);
+    // })
 
     // I AM TO CHECK IF USER HAS BEEN PRICED ALREADY... I DONT WORK YET. //
     $rootScope.$on('$stateChangeStart', function(evt, to){

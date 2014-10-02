@@ -38,7 +38,7 @@ angular.module('health3App')
 
         scope.joinNow = function(){
           $rootScope.product = scope.product;
-          // $state.go('join.start');
+          $state.go('join.start');
         };
 
         scope.weeklyPrice = function(){
