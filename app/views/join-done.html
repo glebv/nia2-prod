@@ -1,25 +1,60 @@
 <div class="row">
 	<div class="small-12 columns">
 		<h2>You have successfully signed up with the following details</h2>
-		<p>
-			<label for="name">Name: </label>
-			<span>{{u.name}}</span>
-		</p>
-		<p>
-			<label for="name">Email: </label>
-			<span>{{u.email}}</span>
-		</p>
-		<p>
-			<label for="name">Mobile Number: </label>
-			<span>{{u.phone}}
-		</p>
-		<p ng-show="u.images.length != 0">
-			<img ng-repeat="image in u.images" ng-src="{{image}}" heigth="100" width="100" />
-		</p>		
-		<p ng-show="u.alternateText">
-			<label for="name">Alternate Message: </label>
-			<span>{{u.alternateText}}
-		</p>	
+		<div>
+			<p>User details</p>
+			<p>
+				<label for="name">Name: </label>
+				<span>{{signupdata.u.name}}</span>
+			</p>
+			<p>
+				<label for="email">Email: </label>
+				<span>{{signupdata.u.email}}</span>
+			</p>
+			<p>
+				<label for="phone">Mobile Number: </label>
+				<span>{{signupdata.u.phone}}</span>
+			</p>
+		</div>
+		<div>
+			<p>License details</p>
+			<p>
+				<label for="address">Correct Address: </label>
+				<span>{{signupdata.license.correctAddress}}</span>
+			</p>
+			<p>
+				<label for="license_image">Image: </label>
+				<img ng-src="{{signupdata.license.image}}" height="100" width="100" />
+			</p>			
+		</div>
+		<div>
+			<p>Medicare details</p>
+			<p>
+				<label for="people">Additional People: </label>
+				<ul>
+					<li ng-repeat="people in signupdata.medicare.people">{{ people.name }}</li>
+				</ul>	
+			</p>
+			<p>
+				<label for="medicare_image">Image: </label>
+				<img ng-src="{{signupdata.medicare.image}}" height="100" width="100" />
+			</p>			
+		</div>
+		<div>
+			<p>Current Insurer details</p>
+			<p>
+				<label for="policy">Everyone On Policy: </label>
+				<span>{{signupdata.current.everyoneOnPolicy ? 'Yes' : 'No' }}	
+			</p>
+			<p>
+				<label for="insurance">Has Current Insurance: </label>
+				<span>{{signupdata.current.hasCurrentInsurance ? 'Yes' : 'No' }}	
+			</p>
+			<p>
+				<label for="insurer_image">Image: </label>
+				<img ng-src="{{signupdata.current.image}}" height="100" width="100" />
+			</p>			
+		</div>					
 	</div>
 </div>
 
