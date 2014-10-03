@@ -4,15 +4,15 @@
 			<h2>Is the address on this license your current address?</h2>
 			<p>
 				<button type="button" class="button" ng-click="closeModal()">Yes</button>
-				<button type="button" class="button" ng-click="showAlternateText()">No</button>
+				<button type="button" class="button" ng-click="isAlternateText = true;">No</button>
 			</p>
 		</div>
 
 		<div ng-show="isAlternateText">
 			<h1>Please enter your current address</h1>
-			<p><input type="text" name="correctAddress" ng-model="l.correctAddress" value="" /></p>
+			<p><input type="text" name="correctAddress" ng-model="correctAddress" value="" /></p>
 			<p>
-				<button type="button" class="button" ng-click="closeModal(l)">Confirm</button>	
+				<button type="button" class="button" ng-click="closeModal(correctAddress)">Confirm</button>
 			</p>	
 		</div>	
 	</div>

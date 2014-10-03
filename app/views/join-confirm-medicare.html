@@ -3,7 +3,7 @@
 		<div ng-show="!isAlternateText">
 			<h2>Do you want to additional people?</h2>
 			<p>
-				<button type="button" class="button" ng-click="showAlternateText()">Yes</button>
+				<button type="button" class="button" ng-click="isAlternateText = true">Yes</button>
 				<button type="button" class="button" ng-click="closeModal()">No</button>
 			</p>
 		</div>
@@ -11,13 +11,13 @@
 		<div ng-show="isAlternateText">
 			<h1>Please add more people here</h1>
 			<p>
-				<a ng-click="addNew()">add more</a>
+				<a ng-click="people.push({ name: '' });">add more</a>
 			</p>	
 			<p ng-repeat="nameObj in people">
 				<input type="text" name="name" ng-model="nameObj.name" />
 			</p>
 			<p>
-				<button type="button" class="button" ng-click="closeModal()">Confirm</button>	
+				<button type="button" class="button" ng-click="closeModal(people)">Confirm</button>
 			</p>	
 		</div>	
 	</div>

@@ -12,25 +12,36 @@ angular.module('health3App')
 
   .state('join.start', {
     url: '/',
-    templateUrl: 'views/join-start.html'
+    templateUrl: 'views/join-start.html',
+    data: {
+      nextStep: 'join.license'
+    }
   })
-
   .state('join.license', {
     url: '/drivers-license',
-    templateUrl: 'views/join-upload.html',
-    controller: 'JoinLicenseCtrl'
+    templateUrl: 'views/join-license.html',
+    controller: 'JoinLicenseCtrl',
+    data: {
+      nextStep: 'join.medicare'
+    }
   })
 
   .state('join.medicare', {
     url: '/medicare-card',
-    templateUrl: 'views/join-upload.html',
-    controller: 'JoinMedicareCtrl'
+    templateUrl: 'views/join-medicare.html',
+    controller: 'JoinMedicareCtrl',
+    data: {
+      nextStep: 'join.current'
+    }
   })
 
   .state('join.current', {
     url: '/current-insurer',
-    templateUrl: 'views/join-upload.html',
-    controller: 'JoinCurrentInsurerCtrl'
+    templateUrl: 'views/join-insurer.html',
+    controller: 'JoinCurrentInsurerCtrl',
+    data: {
+      nextStep: 'join.confirm'
+    }
   })
 
   .state('join.confirm', {
