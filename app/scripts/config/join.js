@@ -40,18 +40,28 @@ angular.module('health3App')
     templateUrl: 'views/join-insurer.html',
     controller: 'JoinCurrentInsurerCtrl',
     data: {
-      nextStep: 'join.confirm'
+      nextStep: 'join.summary.confirm'
     }
   })
 
-  .state('join.confirm', {
+  .state('join.summary', {
+    url: '/summary',
+    templateUrl: 'views/join-summary.html',
+    controller: 'JoinConfirmCtrl'
+  })
+  .state('join.summary.confirm', {
     url: '/confirm',
-    templateUrl: 'views/join-confirm.html'
+    views: {
+      header: {templateUrl: 'views/join-sum-confirm-header.html'},
+      footer: {templateUrl: 'views/join-sum-confirm-footer.html'}
+    }
+  })
+  .state('join.summary.done', {
+    url: '/done',
+    views: {
+      header: {templateUrl: 'views/join-sum-done-header.html'}
+    }
   })
 
-  .state('join.done', {
-    url: '/done',
-    templateUrl: 'views/join-done.html'
-  });
 
 });

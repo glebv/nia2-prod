@@ -1,4 +1,4 @@
-<div class="row first-page">
+<div class="row first-page" xmlns="http://www.w3.org/1999/html">
 	<div class="small-12 columns">
 		<h2 class="tk-phoreuscherokee">You're gonna love your {{ product.name }} health cover!</h2>
 		<p>Let's get some information off you first.</p>
@@ -6,23 +6,23 @@
 			<label for="name">Name: </label>
 			<input type="text" name="name" ng-model="u.name" placeholder="Your name" required>
 			<span class="indicator">•</span>
-			<span ng-show="(joinForm.name.$error.required || (joinForm.name.$invalid && !joinForm.name.$pristine)) && control.submitted" class="error">Name is required</span>
+			<span ng-show="isValidate && joinForm.name.$invalid" class="error">Name is required</span>
 		</p>
 		<p>
 			<label for="email">Email: </label>
 			<input type="email" name="email" ng-model="u.email" placeholder="Your email" required>
 			<span class="indicator">•</span>
-			<span ng-show="(joinForm.email.$error.required || (joinForm.email.$invalid && !joinForm.email.$pristine)) && control.submitted" class="error">Please enter valid email ID</span>
+			<span ng-show="isValidate && joinForm.email.$invalid" class="error">Please enter valid email ID</span>
 		</p>
 		<p>
 			<label for="phone">Mobile Number: </label>
 			<input type="text" name="phone" ng-model="u.phone" placeholder="Your mobile number" required>
 			<span class="indicator">•</span>
-			<span ng-show="(joinForm.phone.$error.required || (joinForm.phone.$invalid && !joinForm.phone.$pristine)) && control.submitted" class="error">Mobile number is required</span>
+			<span ng-show="isValidate && joinForm.phone.$invalid" class="error">Mobile number is required</span>
 		</p>
 	</div>
 	<footer class="small-12 columns">
-		<a class="button" ng-click="processForm(joinForm.$valid)">Next</a>
+		<button type="submit" class="button" ng-click="isValidate = true">Next</button> {{joinForm.$submitted }}
 	</footer>
 </div>
 

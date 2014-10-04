@@ -352,7 +352,7 @@ section.contact{
 
 // General page animations //
 
-[ui-view]{
+[ui-view]:not([class~="without-animation"]){
   &.ng-enter,
   &.ng-leave{
     transition: all .5s $easeOutExpo;
